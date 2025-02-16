@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bk7brjetcxruw"
-path="res://.godot/imported/scan_icon.png-a82c009c404ebe7fe5f44a0948b764fb.ctex"
+uid="uid://cifopsm7xvdah"
+path="res://.godot/imported/scan_fill_mask.png-7b53fe30ce9899b4dc7aa54a78803c20.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/scan_icon.png"
-dest_files=["res://.godot/imported/scan_icon.png-a82c009c404ebe7fe5f44a0948b764fb.ctex"]
+source_file="res://assets/sprites/scan_fill_mask.png"
+dest_files=["res://.godot/imported/scan_fill_mask.png-7b53fe30ce9899b4dc7aa54a78803c20.ctex"]
 
 [params]
 
