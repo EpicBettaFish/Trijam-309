@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var fish_pl = preload("res://scenes/fish.tscn")
 
+var delay = 2.0
+
 func _ready():
 	pass # Replace with function body.
 
@@ -12,3 +14,8 @@ func spawn():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+func _on_timer_timeout():
+	spawn()
+	$Timer.start(delay)
