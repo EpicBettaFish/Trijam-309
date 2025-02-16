@@ -4,13 +4,13 @@ extends Area2D
 @onready var fishScanSprite: Sprite2D = $ScanFish/ScanColor
 
 var enemy: bool = false
-var scanColor: Color = Color(0,1,0)
+var scanColor: Color = Color(0.3,0.75,0.3)
 
 func _ready():
 	var isEnemy = randi_range(1,3)
 	if isEnemy <= 2:
 		enemy = true
-		scanColor = Color(1,0,0)
+		scanColor = Color(0.75,0.3,0.3)
 	
 	print(isEnemy)
 	

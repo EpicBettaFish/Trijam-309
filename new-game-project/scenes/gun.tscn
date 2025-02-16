@@ -1,15 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmgj6jtbjvvxl"]
+[gd_scene load_steps=9 format=3 uid="uid://bmgj6jtbjvvxl"]
 
 [ext_resource type="Script" path="res://scripts/gun.gd" id="1_10gnp"]
 [ext_resource type="Texture2D" uid="uid://ccjas05giliw2" path="res://assets/sprites/sight.png" id="2_elag3"]
 [ext_resource type="Texture2D" uid="uid://b17femnl3se6g" path="res://assets/sprites/sight_mask.png" id="2_fuvq2"]
+[ext_resource type="Texture2D" uid="uid://bk7brjetcxruw" path="res://assets/sprites/scan_icon.png" id="4_ywf47"]
+[ext_resource type="Texture2D" uid="uid://b131ltycb83kc" path="res://assets/sprites/player.png" id="5_pustf"]
+[ext_resource type="Texture2D" uid="uid://cifopsm7xvdah" path="res://assets/sprites/scan_fill_mask.png" id="5_s4qk7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1j88a"]
-radius = 22.0227
+radius = 22.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3k4le"]
+light_mode = 2
 
 [node name="Gun" type="Node2D"]
 z_index = 1
 script = ExtResource("1_10gnp")
+
+[node name="Player" type="Sprite2D" parent="."]
+position = Vector2(181, 70)
+texture = ExtResource("5_pustf")
+hframes = 2
 
 [node name="SightParent" type="Node2D" parent="."]
 
@@ -23,9 +34,39 @@ range_item_cull_mask = 2
 shadow_item_cull_mask = 2
 texture = ExtResource("2_fuvq2")
 
-[node name="SightArea" type="Area2D" parent="SightParent/Sight"]
+[node name="SightArea" type="Area2D" parent="SightParent/Sight/SightMask"]
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SightParent/Sight/SightArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SightParent/Sight/SightMask/SightArea"]
 shape = SubResource("CircleShape2D_1j88a")
+
+[node name="FillMask" type="PointLight2D" parent="SightParent/Sight/SightMask"]
+light_mask = 4
+energy = 0.0
+range_item_cull_mask = 4
+shadow_item_cull_mask = 2
+texture = ExtResource("5_s4qk7")
+
+[node name="Scan" type="TextureProgressBar" parent="SightParent/Sight"]
+modulate = Color(1, 1, 1, 0.294118)
+show_behind_parent = true
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = 24.0
+mouse_filter = 2
+value = 100.0
+fill_mode = 5
+texture_progress = ExtResource("4_ywf47")
+
+[node name="FillSprite" type="Sprite2D" parent="SightParent/Sight"]
+show_behind_parent = true
+light_mask = 4
+material = SubResource("CanvasItemMaterial_3k4le")
+texture = ExtResource("4_ywf47")
+
+[node name="ScanCooldown" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="ScanCooldown" to="." method="_on_scan_cooldown_timeout"]
