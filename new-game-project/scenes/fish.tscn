@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://qfmtm64gcivj"]
+[gd_scene load_steps=7 format=3 uid="uid://qfmtm64gcivj"]
 
 [ext_resource type="Script" path="res://scripts/fish.gd" id="1_v8nme"]
 [ext_resource type="Texture2D" uid="uid://cxtxm3jovqxbj" path="res://assets/sprites/fish_small.png" id="1_w6hra"]
 [ext_resource type="Texture2D" uid="uid://cetwgcptb2stb" path="res://assets/sprites/fish_small_scan.png" id="3_501ak"]
+[ext_resource type="Texture2D" uid="uid://clwj78rlgik2w" path="res://assets/sprites/fish_skeleton.png" id="4_hdf83"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xdyl1"]
 size = Vector2(15, 11)
@@ -11,18 +12,27 @@ size = Vector2(15, 11)
 light_mode = 2
 
 [node name="Fish" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_v8nme")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_xdyl1")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="FishSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_w6hra")
 
-[node name="BackBufferCopy" type="BackBufferCopy" parent="."]
+[node name="ScanFish" type="Node2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="BackBufferCopy"]
+[node name="ScanColor" type="Sprite2D" parent="ScanFish"]
 light_mask = 2
 material = SubResource("CanvasItemMaterial_iheg5")
 texture = ExtResource("3_501ak")
+
+[node name="ScanSkeleton" type="Sprite2D" parent="ScanFish"]
+light_mask = 2
+material = SubResource("CanvasItemMaterial_iheg5")
+texture = ExtResource("4_hdf83")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
