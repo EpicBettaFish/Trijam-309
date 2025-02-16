@@ -16,6 +16,8 @@ var canScan: bool = true
 @onready var scanBar: TextureProgressBar = $SightParent/Sight/Scan
 @onready var scanCooldown: Timer = $ScanCooldown
 
+@onready var shootRaycast: RayCast2D = $SightParent/Sight/ShootRaycast
+
 var scopeStartPos: Vector2
 
 var cooldownBarTween
