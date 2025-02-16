@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d15ngvl61it2n"
-path="res://.godot/imported/background for oneshot.png-3e1748a96c3b8f8776bee62a5c442fbc.ctex"
+uid="uid://dql7bpescj4ex"
+path="res://.godot/imported/permanentscanupgrade.png-786222434f14bee3e507c70359930c8d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/uisprites/background for oneshot.png"
-dest_files=["res://.godot/imported/background for oneshot.png-3e1748a96c3b8f8776bee62a5c442fbc.ctex"]
+source_file="res://assets/uisprites/permanentscanupgrade.png"
+dest_files=["res://.godot/imported/permanentscanupgrade.png-786222434f14bee3e507c70359930c8d.ctex"]
 
 [params]
 

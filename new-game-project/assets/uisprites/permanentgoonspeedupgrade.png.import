@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cb5j3d42avxsy"
-path="res://.godot/imported/background fo permanent upgrade.png-21421960b0b325b2252badde222315e6.ctex"
+uid="uid://choga68454xkv"
+path="res://.godot/imported/permanentgoonspeedupgrade.png-5a809fbc85b3a992bf8dbb3d3ba7d05a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/uisprites/background fo permanent upgrade.png"
-dest_files=["res://.godot/imported/background fo permanent upgrade.png-21421960b0b325b2252badde222315e6.ctex"]
+source_file="res://assets/uisprites/permanentgoonspeedupgrade.png"
+dest_files=["res://.godot/imported/permanentgoonspeedupgrade.png-5a809fbc85b3a992bf8dbb3d3ba7d05a.ctex"]
 
 [params]
 

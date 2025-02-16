@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dql7bpescj4ex"
-path="res://.godot/imported/permanentscanupgrade.png-55f177a7bacba49206fee2ce9e60e749.ctex"
+uid="uid://dr72v67qcau4x"
+path="res://.godot/imported/increasegunneramountupgrade.png-15a5437e0be8a642fb639f3649775c92.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/uisprites/permanentscanupgrade.png"
-dest_files=["res://.godot/imported/permanentscanupgrade.png-55f177a7bacba49206fee2ce9e60e749.ctex"]
+source_file="res://assets/uisprites/increasegunneramountupgrade.png"
+dest_files=["res://.godot/imported/increasegunneramountupgrade.png-15a5437e0be8a642fb639f3649775c92.ctex"]
 
 [params]
 
