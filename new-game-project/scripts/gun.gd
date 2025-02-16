@@ -3,6 +3,7 @@ extends Node2D
 #ADJUSTED IN SHOP
 var maxScopedMovement: float = 20.0
 var scanSize: float = 0.5
+var gunCooldown: float = 1.0
 #END
 
 var scopedIn: bool = false
@@ -18,7 +19,12 @@ var canScan: bool = true
 
 @onready var shootRaycast: RayCast2D = $SightParent/Sight/ShootRaycast
 
+@onready var gunFireSound: AudioStreamPlayer2D = $GunFireSound
+@onready var playerAnim: AnimationPlayer = $Player/AnimationPlayer
+
 var scopeStartPos: Vector2
+
+var canShoot: bool = true
 
 var cooldownBarTween
 
@@ -34,7 +40,7 @@ func _unhandled_input(event) -> void:
 	if event.is_action_released("scopeIn"):
 		if scopedIn:
 			scopeOut()
-	if event.is_action_pressed("shoot"):
+	if event.is_action_pressed("shoot") and canShoot:
 		shoot()
 	if event is InputEventMouseMotion:
 		sight.global_position = get_global_mouse_position()
@@ -46,6 +52,14 @@ func _unhandled_input(event) -> void:
 func shoot() -> void:
 	if shootRaycast.is_colliding():
 		shootRaycast.get_collider().hit()
+	playerAnim.play("shoot")
+	gunFireSound.play()
+	
+	canShoot = false
+	
+	await get_tree().create_timer(gunCooldown).timeout
+	
+	canShoot = true
 
 
 func scopeIn() -> void:
