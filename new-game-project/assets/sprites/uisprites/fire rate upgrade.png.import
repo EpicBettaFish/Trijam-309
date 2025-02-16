@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dfcfxt85hlqum"
-path="res://.godot/imported/firerate upgrade.png-a114f482d2cac34b9dd47545526ff7c7.ctex"
+path="res://.godot/imported/fire rate upgrade.png-8a47e4f0890df9175023d0eb856f023d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/uisprites/firerate upgrade.png"
-dest_files=["res://.godot/imported/firerate upgrade.png-a114f482d2cac34b9dd47545526ff7c7.ctex"]
+source_file="res://assets/sprites/uisprites/fire rate upgrade.png"
+dest_files=["res://.godot/imported/fire rate upgrade.png-8a47e4f0890df9175023d0eb856f023d.ctex"]
 
 [params]
 
