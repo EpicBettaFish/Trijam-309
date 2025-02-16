@@ -5,10 +5,17 @@ extends Area2D
 
 @export var screams: Array[AudioStream]
 
+var base_y = 0.0
+var speed = 6.0
+var t_bob = 0.0
+var t_increase = 1.0
 var enemy: bool = false
 var scanColor: Color = Color(0.3,0.75,0.3)
 
 func _ready():
+	base_y = global_position.y
+	speed *= randf_range(0.92, 1.11)
+	t_increase *= randf_range(0.92, 2.11)
 	var isEnemy = randi_range(1,3)
 	if isEnemy <= 2:
 		enemy = true
@@ -21,6 +28,11 @@ func _ready():
 	fishSprite.modulate.b = randf_range(0.25,1)
 	
 	fishScanSprite.modulate = fishSprite.modulate
+
+func _process(delta):
+	t_bob += t_increase*delta
+	global_position.x += speed*delta
+	global_position.y = base_y + (sin(t_bob)*3)
 
 func hit():
 	var scream_audio = $ScreamAudio
