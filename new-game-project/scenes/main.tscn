@@ -1,13 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://b82ojgxnmx4oi"]
+[gd_scene load_steps=6 format=3 uid="uid://b82ojgxnmx4oi"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_ir6g1"]
+[ext_resource type="Texture2D" uid="uid://b0d4llnn67xar" path="res://assets/sprites/background.png" id="2_k6gwg"]
 [ext_resource type="PackedScene" uid="uid://qfmtm64gcivj" path="res://scenes/fish.tscn" id="2_r5j7k"]
+[ext_resource type="PackedScene" uid="uid://bmgj6jtbjvvxl" path="res://scenes/gun.tscn" id="4_p7ph5"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1fjxp"]
+light_mode = 2
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_ir6g1")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 240.0
+offset_bottom = 136.0
+texture = ExtResource("2_k6gwg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+light_mask = 2
+material = SubResource("CanvasItemMaterial_1fjxp")
+offset_right = 240.0
+offset_bottom = 135.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.388235)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 
+[node name="Gun" parent="." instance=ExtResource("4_p7ph5")]
+
 [node name="Fish" parent="." instance=ExtResource("2_r5j7k")]
 position = Vector2(46, 71)
+
+[node name="Fish2" parent="." instance=ExtResource("2_r5j7k")]
+position = Vector2(45, 59)
+
+[node name="Fish3" parent="." instance=ExtResource("2_r5j7k")]
+position = Vector2(63, 61)
+
+[node name="Fish4" parent="." instance=ExtResource("2_r5j7k")]
+position = Vector2(62, 74)
+
+[node name="Fish5" parent="." instance=ExtResource("2_r5j7k")]
+position = Vector2(30, 71)
