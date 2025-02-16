@@ -34,12 +34,19 @@ func _unhandled_input(event) -> void:
 	if event.is_action_released("scopeIn"):
 		if scopedIn:
 			scopeOut()
+	if event.is_action_pressed("shoot"):
+		shoot()
 	if event is InputEventMouseMotion:
 		sight.global_position = get_global_mouse_position()
 		if scopedIn:
 			sight.position = sight.position.limit_length(maxScopedMovement)
 		else:
 			sightParent.global_position = get_global_mouse_position()
+
+func shoot() -> void:
+	if shootRaycast.is_colliding():
+		shootRaycast.get_collider().hit()
+
 
 func scopeIn() -> void:
 	sightMask.scale = Vector2(scanSize, scanSize)
