@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6txrtlm8rp4g"
-path="res://.godot/imported/scan radius upgrade.png-942883f09b5af6d24e7f2f1c15379796.ctex"
+uid="uid://gdsnu5qjjgpg"
+path="res://.godot/imported/increasespotteramountupgrade.png-c5607cbee4e2f4793b0f0fb443638cdb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/uisprites/scan radius upgrade.png"
-dest_files=["res://.godot/imported/scan radius upgrade.png-942883f09b5af6d24e7f2f1c15379796.ctex"]
+source_file="res://assets/uisprites/increasespotteramountupgrade.png"
+dest_files=["res://.godot/imported/increasespotteramountupgrade.png-c5607cbee4e2f4793b0f0fb443638cdb.ctex"]
 
 [params]
 
