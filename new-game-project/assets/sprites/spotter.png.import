@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://46cdco0dbhsv"
-path="res://.godot/imported/scan speed upgrade.png-44cbeb0d76213cff37f33df25eed8abb.ctex"
+uid="uid://c754yqgm74sju"
+path="res://.godot/imported/spotter.png-e2b22f2671f3b43aacd2f7e7447ad93d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/uisprites/scan speed upgrade.png"
-dest_files=["res://.godot/imported/scan speed upgrade.png-44cbeb0d76213cff37f33df25eed8abb.ctex"]
+source_file="res://assets/sprites/spotter.png"
+dest_files=["res://.godot/imported/spotter.png-e2b22f2671f3b43aacd2f7e7447ad93d.ctex"]
 
 [params]
 
