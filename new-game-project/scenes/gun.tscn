@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmgj6jtbjvvxl"]
+
+[ext_resource type="Script" path="res://scripts/gun.gd" id="1_10gnp"]
+[ext_resource type="Texture2D" uid="uid://ci8sjad6ioljn" path="res://assets/sprites/sight.png" id="2_elag3"]
+
+[node name="Gun" type="Node2D"]
+script = ExtResource("1_10gnp")
+
+[node name="SightMask" type="Sprite2D" parent="."]
+texture = ExtResource("2_elag3")
