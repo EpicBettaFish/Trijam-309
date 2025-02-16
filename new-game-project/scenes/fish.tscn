@@ -1,9 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://qfmtm64gcivj"]
+[gd_scene load_steps=15 format=3 uid="uid://qfmtm64gcivj"]
 
 [ext_resource type="Script" path="res://scripts/fish.gd" id="1_v8nme"]
 [ext_resource type="Texture2D" uid="uid://cxtxm3jovqxbj" path="res://assets/sprites/fish_small.png" id="1_w6hra"]
+[ext_resource type="AudioStream" uid="uid://dlrq1cpeqpjda" path="res://assets/audio/death1.mp3" id="2_gbyfl"]
 [ext_resource type="Texture2D" uid="uid://cetwgcptb2stb" path="res://assets/sprites/fish_small_scan.png" id="3_501ak"]
+[ext_resource type="AudioStream" uid="uid://d0xko2cbc6lyw" path="res://assets/audio/death2.mp3" id="3_vkgal"]
 [ext_resource type="Texture2D" uid="uid://cmeq7r3on45yy" path="res://assets/sprites/fish_skeleton.png" id="4_hdf83"]
+[ext_resource type="AudioStream" uid="uid://84s3mo182p5e" path="res://assets/audio/death3.mp3" id="4_my746"]
+[ext_resource type="AudioStream" uid="uid://dts4wvii152wa" path="res://assets/audio/death4.mp3" id="5_mvlnp"]
+[ext_resource type="AudioStream" uid="uid://dry7eu3ym5ish" path="res://assets/audio/death5.mp3" id="6_x5f4w"]
+[ext_resource type="AudioStream" uid="uid://rcxe4y5wswvi" path="res://assets/audio/death6.mp3" id="7_1h4x2"]
+[ext_resource type="AudioStream" uid="uid://dg5hvai07p1m" path="res://assets/audio/death7.mp3" id="8_ff8a8"]
+[ext_resource type="AudioStream" uid="uid://4l55raywkoj4" path="res://assets/audio/death8.mp3" id="9_3jqra"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xdyl1"]
 size = Vector2(15, 9)
@@ -15,6 +23,7 @@ light_mode = 2
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_v8nme")
+screams = Array[AudioStream]([ExtResource("2_gbyfl"), ExtResource("3_vkgal"), ExtResource("4_my746"), ExtResource("5_mvlnp"), ExtResource("6_x5f4w"), ExtResource("7_1h4x2"), ExtResource("8_ff8a8"), ExtResource("9_3jqra")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0.5)
@@ -34,5 +43,7 @@ texture = ExtResource("3_501ak")
 light_mask = 2
 material = SubResource("CanvasItemMaterial_iheg5")
 texture = ExtResource("4_hdf83")
+
+[node name="ScreamAudio" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

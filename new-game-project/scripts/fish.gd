@@ -3,6 +3,8 @@ extends Area2D
 @onready var fishSprite: Sprite2D = $FishSprite
 @onready var fishScanSprite: Sprite2D = $ScanFish/ScanColor
 
+@export var screams: Array[AudioStream]
+
 var enemy: bool = false
 var scanColor: Color = Color(0.3,0.75,0.3)
 
@@ -20,6 +22,18 @@ func _ready():
 	
 	fishScanSprite.modulate = fishSprite.modulate
 
+func hit():
+	var scream_audio = $ScreamAudio
+	screams.shuffle()
+	scream_audio.stream = screams[0]
+	scream_audio.pitch_scale = randf_range(1.11, 1.33)
+	scream_audio.play()
+	remove_child(scream_audio)
+	get_tree().current_scene.add_child(scream_audio)
+	
+	##GIVE SHOP MONEY HERE
+	
+	queue_free()
 
 func _on_area_entered(area):
 	var tween = create_tween().set_trans(Tween.TRANS_SINE)
