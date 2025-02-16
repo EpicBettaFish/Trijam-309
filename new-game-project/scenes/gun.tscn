@@ -1,10 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmgj6jtbjvvxl"]
+[gd_scene load_steps=4 format=3 uid="uid://bmgj6jtbjvvxl"]
 
 [ext_resource type="Script" path="res://scripts/gun.gd" id="1_10gnp"]
-[ext_resource type="Texture2D" uid="uid://ci8sjad6ioljn" path="res://assets/sprites/sight.png" id="2_elag3"]
+[ext_resource type="Texture2D" uid="uid://ccjas05giliw2" path="res://assets/sprites/sight.png" id="2_elag3"]
+[ext_resource type="Texture2D" uid="uid://b17femnl3se6g" path="res://assets/sprites/sight_mask.png" id="2_fuvq2"]
 
 [node name="Gun" type="Node2D"]
+z_index = 1
 script = ExtResource("1_10gnp")
 
-[node name="SightMask" type="Sprite2D" parent="."]
+[node name="SightParent" type="Node2D" parent="."]
+
+[node name="Sight" type="Sprite2D" parent="SightParent"]
 texture = ExtResource("2_elag3")
+
+[node name="SightMask" type="PointLight2D" parent="SightParent/Sight"]
+light_mask = 2
+energy = 0.0
+range_item_cull_mask = 2
+shadow_item_cull_mask = 2
+texture = ExtResource("2_fuvq2")

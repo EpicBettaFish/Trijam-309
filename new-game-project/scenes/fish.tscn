@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://qfmtm64gcivj"]
+[gd_scene load_steps=6 format=3 uid="uid://qfmtm64gcivj"]
 
 [ext_resource type="Script" path="res://scripts/fish.gd" id="1_v8nme"]
 [ext_resource type="Texture2D" uid="uid://cxtxm3jovqxbj" path="res://assets/sprites/fish_small.png" id="1_w6hra"]
+[ext_resource type="Texture2D" uid="uid://cetwgcptb2stb" path="res://assets/sprites/fish_small_scan.png" id="3_501ak"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xdyl1"]
 size = Vector2(15, 11)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_iheg5"]
+light_mode = 2
 
 [node name="Fish" type="Area2D"]
 script = ExtResource("1_v8nme")
@@ -15,3 +19,10 @@ shape = SubResource("RectangleShape2D_xdyl1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_w6hra")
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="BackBufferCopy"]
+light_mask = 2
+material = SubResource("CanvasItemMaterial_iheg5")
+texture = ExtResource("3_501ak")
