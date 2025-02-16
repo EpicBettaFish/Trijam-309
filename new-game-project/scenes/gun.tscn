@@ -66,6 +66,13 @@ light_mask = 4
 material = SubResource("CanvasItemMaterial_3k4le")
 texture = ExtResource("4_ywf47")
 
+[node name="RayCast2D" type="RayCast2D" parent="SightParent/Sight"]
+target_position = Vector2(0, 1)
+collision_mask = 4
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
 [node name="ScanCooldown" type="Timer" parent="."]
 wait_time = 3.0
 

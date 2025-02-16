@@ -6,18 +6,18 @@
 [ext_resource type="Texture2D" uid="uid://cmeq7r3on45yy" path="res://assets/sprites/fish_skeleton.png" id="4_hdf83"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xdyl1"]
-size = Vector2(15, 11)
+size = Vector2(15, 9)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_iheg5"]
 light_mode = 2
 
 [node name="Fish" type="Area2D"]
-collision_layer = 0
+collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_v8nme")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -0.5)
+position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_xdyl1")
 
 [node name="FishSprite" type="Sprite2D" parent="."]

@@ -38,6 +38,7 @@ scopeIn={
 [layer_names]
 
 2d_physics/layer_2="Scannable"
+2d_physics/layer_3="Fish"
 
 [rendering]
 
