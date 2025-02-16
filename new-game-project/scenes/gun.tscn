@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmgj6jtbjvvxl"]
+[gd_scene load_steps=12 format=3 uid="uid://bmgj6jtbjvvxl"]
 
 [ext_resource type="Script" path="res://scripts/gun.gd" id="1_10gnp"]
 [ext_resource type="Texture2D" uid="uid://ccjas05giliw2" path="res://assets/sprites/sight.png" id="2_elag3"]
@@ -6,6 +6,27 @@
 [ext_resource type="Texture2D" uid="uid://bk7brjetcxruw" path="res://assets/sprites/scan_icon.png" id="4_ywf47"]
 [ext_resource type="Texture2D" uid="uid://b131ltycb83kc" path="res://assets/sprites/player.png" id="5_pustf"]
 [ext_resource type="Texture2D" uid="uid://cifopsm7xvdah" path="res://assets/sprites/scan_fill_mask.png" id="5_s4qk7"]
+[ext_resource type="AudioStream" uid="uid://ct7iwhuq2nlis" path="res://assets/audio/SniperSound.ogg" id="7_bma78"]
+
+[sub_resource type="Animation" id="Animation_2iupb"]
+resource_name = "shoot"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4rskq"]
+_data = {
+"shoot": SubResource("Animation_2iupb")
+}
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1j88a"]
 radius = 22.0
@@ -21,6 +42,11 @@ script = ExtResource("1_10gnp")
 position = Vector2(181, 70)
 texture = ExtResource("5_pustf")
 hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+libraries = {
+"": SubResource("AnimationLibrary_4rskq")
+}
 
 [node name="SightParent" type="Node2D" parent="."]
 
@@ -75,5 +101,10 @@ collide_with_bodies = false
 
 [node name="ScanCooldown" type="Timer" parent="."]
 wait_time = 3.0
+
+[node name="GunFireSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(174, 66)
+stream = ExtResource("7_bma78")
+volume_db = -3.0
 
 [connection signal="timeout" from="ScanCooldown" to="." method="_on_scan_cooldown_timeout"]

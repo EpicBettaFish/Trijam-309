@@ -51,7 +51,6 @@ func shoot() -> void:
 func scopeIn() -> void:
 	sightMask.scale = Vector2(scanSize, scanSize)
 	
-	await get_tree().create_timer(0.1).timeout
 	
 	scopedIn = true
 	sightMask.visible = scopedIn
