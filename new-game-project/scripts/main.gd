@@ -36,6 +36,9 @@ func _unhandled_input(event):
 func _on_tower_entrance_area_entered(area):
 	if area.enemy:
 		damage(1)
+	else:
+		Singleton.money += 0.5
+		Singleton.score += 0.5
 	area.die()
 
 func attemptSpawn(minionType) -> void:

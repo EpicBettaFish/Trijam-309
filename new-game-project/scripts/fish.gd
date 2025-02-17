@@ -65,6 +65,8 @@ func hit():
 		screams.shuffle()
 		scream_audio.stream = screams[0]
 		scream_audio.play()
+		Singleton.money += value
+		Singleton.score += value
 		remove_child(scream_audio)
 		get_tree().current_scene.add_child(scream_audio)
 		die()
@@ -72,8 +74,6 @@ func hit():
 func die() -> void:
 	get_parent().spawned_fish.erase(self)
 	get_parent().evil_fish.erase(self)
-	Singleton.money += value
-	Singleton.score += value
 	
 	##GIVE SHOP MONEY HERE
 	
