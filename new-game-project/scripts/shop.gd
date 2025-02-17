@@ -85,23 +85,11 @@ func _on_scan_radius_button_up() -> void:
 	
 func _on_goon_press(type):
 	if Singleton.money >= goon_cost:
-		if type == "gunner" and main.activeGoons != 5:
-			main.attemptSpawn(type)
-			Singleton.money -= goon_cost
-			goon_cost = round(goon_cost * 1.15)
+		main.attemptSpawn(type)
+		Singleton.money -= goon_cost
+		goon_cost = round(goon_cost * 1.15)
 			
-		if type == "spotter" and main.activeSpotters != 5:
-			main.attemptSpawn(type)
-			Singleton.money -= goon_cost
-			goon_cost = round(goon_cost * 1.15)
-			
-		if main.activeGoons == 5:
-			goon_gunner.visible = false
-			gg_price.visible = false
-			
-		if main.activeSpotters == 5:
-			goon_spotter.visible = false
-			gs_price.visible = false
+
 			
 
 
