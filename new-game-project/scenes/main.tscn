@@ -14,12 +14,14 @@ light_mode = 2
 script = ExtResource("1_ir6g1")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
 offset_right = 240.0
 offset_bottom = 136.0
 texture = ExtResource("2_k6gwg")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 light_mask = 2
+z_index = -1
 material = SubResource("CanvasItemMaterial_1fjxp")
 offset_right = 240.0
 offset_bottom = 135.0
@@ -47,6 +49,7 @@ position = Vector2(62, 74)
 position = Vector2(30, 71)
 
 [node name="Tower" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(200, 68)
 texture = ExtResource("5_kvjje")
 
