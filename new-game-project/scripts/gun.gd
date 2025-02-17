@@ -1,6 +1,6 @@
 extends Node2D
 
-var originalFirerate: float = 3.0
+var originalFirerate: float = 2.0
 var originalScanUptime: float = 1.0
 var originalScanCooldown: float = 5.0
 
