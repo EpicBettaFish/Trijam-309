@@ -33,6 +33,7 @@ func _process(delta):
 
 
 func _on_timer_timeout():
+	var timer_delay:float = clamp(cycles / 100, 0.0, 1.5)
 	cycles += 1
 	spawn()
-	$Timer.start(delay)
+	$Timer.start(delay - timer_delay)
