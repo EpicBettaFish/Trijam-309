@@ -29,16 +29,15 @@ var goon_cost = 20
 
 
 
-func _ready() -> void:
-	fr_price = fire_rate_cost
-	su_price = spotter_cooldown_cost
-	sc_price = scan_cooldown_cost
-	
-	sr_price = scan_radius_cost
-	gg_price = goon_cost
-	gs_price = goon_cost
 	
 func _process(delta: float) -> void:
+	fr_price.text = fire_rate_cost
+	su_price.text = spotter_cooldown_cost
+	sc_price.text = scan_cooldown_cost
+	
+	sr_price.text = scan_radius_cost
+	gg_price.text = goon_cost
+	gs_price.text = goon_cost
 	if Input.is_action_just_pressed("toggleShop"):
 		visible = !visible
 		
