@@ -7,6 +7,9 @@ var health: int = 10
 @onready var spotterSpawns = $Spawns/SpotterSpawns
 @onready var goonSpawns = $Spawns/GoonSpawns
 
+@onready var moneyLabel = $UI/Money
+@onready var scoreLabel = $UI/Score
+
 @onready var gun = $Gun
 
 var activeSpotters = 0
@@ -21,6 +24,10 @@ func damage(amount) -> void:
 	healthLabel.text = str(health)
 	if health == 0:
 		get_tree().change_scene_to_file("res://scenes/end_screen.tscn")
+
+func _process(delta):
+	moneyLabel.text = "$%0.2f" % Singleton.money
+	scoreLabel.text = "SCORE: %07d" % (Singleton.score * 100)
 
 func _unhandled_input(event):
 	if event.is_action_pressed("DEBUG"):
