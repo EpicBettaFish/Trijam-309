@@ -1,0 +1,120 @@
+[gd_scene load_steps=11 format=3 uid="uid://o3v1u4iok70w"]
+
+[ext_resource type="Texture2D" uid="uid://cxtxm3jovqxbj" path="res://assets/sprites/fish_small.png" id="1_v827a"]
+[ext_resource type="Texture2D" uid="uid://cetwgcptb2stb" path="res://assets/sprites/fish_small_scan.png" id="1_yg6hk"]
+[ext_resource type="Texture2D" uid="uid://cmeq7r3on45yy" path="res://assets/sprites/fish_skeleton.png" id="2_etjs2"]
+[ext_resource type="FontFile" uid="uid://bf2dxl6qfkmqk" path="res://fonts/I-pixel-u.ttf" id="3_7g3l2"]
+[ext_resource type="Texture2D" uid="uid://ccjas05giliw2" path="res://assets/sprites/sight.png" id="4_g7clo"]
+[ext_resource type="Texture2D" uid="uid://bk7brjetcxruw" path="res://assets/sprites/scan_icon.png" id="5_d3kcd"]
+[ext_resource type="Texture2D" uid="uid://cb5j3d42avxsy" path="res://assets/uisprites/background fo permanent upgrade.png" id="7_mnoym"]
+[ext_resource type="Texture2D" uid="uid://gdsnu5qjjgpg" path="res://assets/uisprites/increasespotteramountupgrade.png" id="8_677bo"]
+[ext_resource type="Texture2D" uid="uid://dr72v67qcau4x" path="res://assets/uisprites/increasegunneramountupgrade.png" id="9_nwbma"]
+[ext_resource type="Texture2D" uid="uid://dhuqudy6djddf" path="res://assets/uisprites/scan radius upgrade.png" id="10_20dn2"]
+
+[node name="introduction" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -1.0
+offset_right = 241.0
+offset_bottom = 133.0
+
+[node name="Sprite2D2" type="Sprite2D" parent="Control"]
+modulate = Color(1, 0, 0.0196078, 1)
+position = Vector2(180, 43)
+texture = ExtResource("1_yg6hk")
+
+[node name="fish2" type="Sprite2D" parent="Control"]
+position = Vector2(180, 43)
+texture = ExtResource("2_etjs2")
+
+[node name="Label2" type="Label" parent="Control"]
+offset_left = 129.0
+offset_top = 9.0
+offset_right = 349.0
+offset_bottom = 49.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("3_7g3l2")
+text = "Press Right Click to scan"
+
+[node name="Sprite2D3" type="Sprite2D" parent="Control"]
+position = Vector2(31, 43)
+texture = ExtResource("4_g7clo")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Control"]
+position = Vector2(180, 45)
+texture = ExtResource("4_g7clo")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Control"]
+position = Vector2(180, 46)
+texture = ExtResource("5_d3kcd")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Control"]
+modulate = Color(0.42732, 0.83973, 0, 1)
+position = Vector2(47, 105)
+texture = ExtResource("1_v827a")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+position = Vector2(31, 39)
+texture = ExtResource("1_v827a")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Control"]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(15, 104)
+texture = ExtResource("1_v827a")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Control"]
+position = Vector2(16, 105)
+scale = Vector2(0.604167, 0.604167)
+texture = ExtResource("4_g7clo")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 7.0
+offset_right = 222.0
+offset_bottom = 31.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("3_7g3l2")
+text = "Aim your reticle over the fish"
+
+[node name="Label3" type="Label" parent="Control"]
+offset_left = 5.0
+offset_top = 74.0
+offset_right = 225.0
+offset_bottom = 140.0
+scale = Vector2(0.3, 0.3)
+theme_override_fonts/font = ExtResource("3_7g3l2")
+text = "SHOOT the red fish DO NOT SHOOT the green fish
+"
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="Control"]
+offset_left = 131.0
+offset_top = 72.0
+offset_right = 351.0
+offset_bottom = 112.0
+scale = Vector2(0.4, 0.4)
+theme_override_fonts/font = ExtResource("3_7g3l2")
+text = "Press _ to open  shop"
+
+[node name="Sprite2D9" type="Sprite2D" parent="Control"]
+position = Vector2(171, 91)
+scale = Vector2(0.65, 0.475)
+texture = ExtResource("7_mnoym")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Control/Sprite2D9"]
+position = Vector2(32.3077, 2.37498)
+scale = Vector2(0.65, 0.869079)
+texture = ExtResource("8_677bo")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Control/Sprite2D9"]
+position = Vector2(1.53845, 4.21052)
+scale = Vector2(0.595864, 0.798701)
+texture = ExtResource("9_nwbma")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Control/Sprite2D9"]
+position = Vector2(-24.3786, 2.13699)
+scale = Vector2(0.792912, 0.845278)
+texture = ExtResource("10_20dn2")
