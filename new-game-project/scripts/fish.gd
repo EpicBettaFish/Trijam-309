@@ -70,6 +70,7 @@ func hit():
 		get_parent().spawned_fish.erase(self)
 		get_parent().evil_fish.erase(self)
 		Singleton.money += value
+		Singleton.score += value
 		
 		##GIVE SHOP MONEY HERE
 		
