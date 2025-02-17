@@ -14,9 +14,6 @@ var activeGoons = 0
 var goon = preload("res://scenes/goon.tscn")
 var spotter = preload("res://scenes/spotter.tscn")
 
-func _ready():
-	attemptSpawn("goon")
-
 func damage(amount) -> void:
 	health -= 1
 	healthLabel.text = str(health)
@@ -35,7 +32,7 @@ func attemptSpawn(minionType) -> void:
 	var spawns
 	
 	match minionType:
-		"goon":
+		"gunner":
 			if activeGoons >= 5:
 				return
 			newMinion = goon.instantiate()
