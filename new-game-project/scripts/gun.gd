@@ -40,7 +40,7 @@ func _ready():
 
 func _unhandled_input(event) -> void:
 	if event.is_action_pressed("scopeIn"):
-		if canScan:
+		if canScan and !scopedIn:
 			scopeIn()
 	if event.is_action_released("scopeIn"):
 		if scopedIn:
@@ -91,7 +91,6 @@ func scopeIn() -> void:
 
 func scopeOut() -> void:
 	scanActiveTimer.stop()
-	scopedIn = false
 	sightMask.visible = scopedIn
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
@@ -106,6 +105,9 @@ func scopeOut() -> void:
 		cooldownBarTween.kill()
 	cooldownBarTween = create_tween().set_trans(Tween.TRANS_LINEAR)
 	cooldownBarTween.tween_property(scanBar, "value", 100, 5)
+	
+	await get_tree().create_timer(0.01).timeout
+	scopedIn = false
 
 
 func _on_scan_cooldown_timeout():

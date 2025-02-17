@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://o3v1u4iok70w"]
+[gd_scene load_steps=11 format=3 uid="uid://dqqx378y71yoj"]
 
 [ext_resource type="Texture2D" uid="uid://cxtxm3jovqxbj" path="res://assets/sprites/fish_small.png" id="1_v827a"]
 [ext_resource type="Texture2D" uid="uid://cetwgcptb2stb" path="res://assets/sprites/fish_small_scan.png" id="1_yg6hk"]
@@ -30,6 +30,7 @@ position = Vector2(180, 43)
 texture = ExtResource("2_etjs2")
 
 [node name="Label2" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 129.0
 offset_top = 9.0
 offset_right = 349.0
@@ -80,6 +81,7 @@ theme_override_fonts/font = ExtResource("3_7g3l2")
 text = "Aim your reticle over the fish"
 
 [node name="Label3" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 5.0
 offset_top = 74.0
 offset_right = 225.0
@@ -91,6 +93,7 @@ text = "SHOOT the red fish DO NOT SHOOT the green fish
 autowrap_mode = 2
 
 [node name="Label4" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 131.0
 offset_top = 72.0
 offset_right = 351.0
