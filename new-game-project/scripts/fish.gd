@@ -3,6 +3,7 @@ extends Area2D
 @onready var fishSprite: Sprite2D = $FishSprite
 @onready var fishScanSprite: Sprite2D = $ScanFish/ScanColor
 
+var value = -5
 
 var life = 1
 @export var screams: Array[AudioStream]
@@ -21,6 +22,7 @@ func _ready():
 	t_increase *= randf_range(0.92, 2.11)
 	var isEnemy = randi_range(1,3)
 	if isEnemy <= 2:
+		value = 1
 		enemy = true
 		scanColor = Color(0.75,0.3,0.3)
 	
@@ -40,6 +42,7 @@ func become(fish_to_be):
 			$CollisionShape2D.shape.size = Vector2(46, 16)
 			$ScreamAudio.pitch_scale = randf_range(0.57, 0.75)
 			life = 12
+			value *= 8
 		"swordfish":
 			$FishSprite.texture = load("res://assets/sprites/swordfish.png")
 			$ScanFish/ScanColor.texture = load("res://assets/sprites/swordfish_scan.png")
@@ -47,6 +50,7 @@ func become(fish_to_be):
 			$CollisionShape2D.shape.size = Vector2(30, 8)
 			$ScreamAudio.pitch_scale = randf_range(0.82, 1.1)
 			life = 4
+			value *= 3
 			
 
 func _process(delta):
@@ -65,6 +69,7 @@ func hit():
 		get_tree().current_scene.add_child(scream_audio)
 		get_parent().spawned_fish.erase(self)
 		get_parent().evil_fish.erase(self)
+		Singleton.money += value
 		
 		##GIVE SHOP MONEY HERE
 		
