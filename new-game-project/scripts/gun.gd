@@ -91,7 +91,7 @@ func scopeIn() -> void:
 
 func scopeOut() -> void:
 	scanActiveTimer.stop()
-	sightMask.visible = scopedIn
+	sightMask.visible = false
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
 	get_viewport().warp_mouse(sight.global_position)
