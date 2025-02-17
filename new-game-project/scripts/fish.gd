@@ -63,10 +63,8 @@ func hit():
 		scream_audio.play()
 		remove_child(scream_audio)
 		get_tree().current_scene.add_child(scream_audio)
-		if get_parent().spawned_fish.count(self):
-			get_parent().spawned_fish.erase(self)
-		if get_parent().evil_fish.count(self):
-			get_parent().evil_fish.erase(self)
+		get_parent().spawned_fish.erase(self)
+		get_parent().evil_fish.erase(self)
 		
 		##GIVE SHOP MONEY HERE
 		
@@ -76,5 +74,5 @@ func _on_area_entered(area):
 	var tween = create_tween().set_trans(Tween.TRANS_SINE)
 	tween.tween_property(fishSprite, "modulate", scanColor, 0.5)
 	tween.parallel().tween_property(fishScanSprite, "modulate", scanColor, 0.5)
-	if enemy: get_parent().evil_fish.append(self)
+	if enemy and get_parent().evil_fish.count(self) == 0: get_parent().evil_fish.append(self)
 	get_parent().spawned_fish.erase(self)

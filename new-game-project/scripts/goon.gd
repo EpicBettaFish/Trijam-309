@@ -17,5 +17,5 @@ func _on_fire_timer_timeout():
 		spawner.evil_fish.front().hit()
 		$AudioStreamPlayer2D.play()
 		$Sprite2D.frame = 1
-		await get_tree().create_timer(0.4).timeout
+		await get_tree().create_timer(0.2).timeout
 		$Sprite2D.frame = 0

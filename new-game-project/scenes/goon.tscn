@@ -11,7 +11,7 @@ script = ExtResource("1_igivy")
 stream = ExtResource("2_5eshj")
 
 [node name="FireTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 4.0
 autostart = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
