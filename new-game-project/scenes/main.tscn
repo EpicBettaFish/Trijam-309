@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b82ojgxnmx4oi"]
+[gd_scene load_steps=17 format=3 uid="uid://b82ojgxnmx4oi"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_ir6g1"]
 [ext_resource type="Texture2D" uid="uid://b0d4llnn67xar" path="res://assets/sprites/background.png" id="2_k6gwg"]
@@ -9,12 +9,28 @@
 [ext_resource type="PackedScene" uid="uid://uk4sbcpf5kgb" path="res://scenes/shop.tscn" id="8_uiqim"]
 [ext_resource type="Texture2D" uid="uid://bs1bux46pq42g" path="res://assets/uisprites/lives.png" id="8_uqgq2"]
 [ext_resource type="AudioStream" uid="uid://b0i30fsts4b2f" path="res://assets/audio/splosion.mp3" id="9_8o2oa"]
+[ext_resource type="AudioStream" uid="uid://cff2ig0nibfv8" path="res://assets/audio/GameSong.mp3" id="10_cjbd4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ns868"]
 size = Vector2(37, 136)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1fjxp"]
 light_mode = 2
+
+[sub_resource type="Animation" id="Animation_sqxpe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_e5qm4"]
 resource_name = "splosion"
@@ -42,21 +58,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_sqxpe"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect2:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_j4olr"]
@@ -238,6 +239,10 @@ z_index = 2
 offset_right = 240.0
 offset_bottom = 135.0
 mouse_filter = 1
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_cjbd4")
+autoplay = true
 
 [connection signal="area_entered" from="Tower/TowerEntrance" to="." method="_on_tower_entrance_area_entered"]
 [connection signal="updateValues" from="UI/Shop" to="Gun" method="_on_shop_update_values"]
