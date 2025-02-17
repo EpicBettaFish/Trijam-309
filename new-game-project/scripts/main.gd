@@ -14,6 +14,10 @@ var health: int = 10
 
 @onready var explosionAnim = $explode
 
+@onready var pressSpaceTooltip = $"press space"
+
+var canShowHelper = true
+
 var activeSpotters = 0
 var activeGoons = 0
 
@@ -33,10 +37,15 @@ func damage(amount) -> void:
 func _process(delta):
 	moneyLabel.text = "$%0.2f" % Singleton.money
 	scoreLabel.text = "score: %07d" % (Singleton.score * 100)
+	if Singleton.money >= 5 and canShowHelper:
+		canShowHelper = false
+		pressSpaceTooltip.visible = true
 
 func _unhandled_input(event):
-	if event.is_action_pressed("DEBUG"):
-		damage(1)
+	if event.is_action_pressed("toggleShop"):
+		print("OFF")
+		canShowHelper = false
+		pressSpaceTooltip.visible = false
 
 func _on_tower_entrance_area_entered(area):
 	if area.enemy:

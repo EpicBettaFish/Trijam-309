@@ -14,6 +14,8 @@ var scanUptime: float = 1.0
 var scopedIn: bool = false
 var canScan: bool = true
 
+@export var hidePlayer: bool = false
+
 @onready var boolet_pl = preload("res://scenes/boolet.tscn")
 @onready var sight: Sprite2D = $SightParent/Sight
 @onready var sightMask: PointLight2D = $SightParent/Sight/SightMask
@@ -43,6 +45,9 @@ func _ready():
 	gunCooldown = originalFirerate
 	scanUptime = originalScanUptime
 	scanCooldown = originalScanCooldown
+	
+	if hidePlayer:
+		$Player.visible = false
 
 
 func _unhandled_input(event) -> void:

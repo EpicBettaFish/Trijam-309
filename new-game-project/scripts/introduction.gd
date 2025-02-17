@@ -1,23 +1,22 @@
 extends Node2D
-@onready var reticle = $Control/aimreticle
 @onready var mouse = false
 @onready var soundsniper = "res://assets/audio/SniperSound.ogg"
 @onready var mousepos = get_viewport().get_mouse_position()
 var mouseaim = true
+
+var infish2 = false
+var infish3 = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	$"Control/Part 2".hide()
+	$"Control/Part 3".hide()
+	$"Control/Part 4".hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	mousepos = get_viewport().get_mouse_position()
-	reticle.position.x = mousepos.x
-	reticle.position.y = mousepos.y
 	if mouse == true:
-		reticle.visible = true
-		reticle.position.x = mousepos.x
-		reticle.position.y = mousepos.y
 		if Input.is_action_just_pressed("shoot") == true and mouseaim:
 			mouseaim = false
 			var sprite2d2 = Sprite2D.new()
@@ -29,10 +28,20 @@ func _process(delta: float) -> void:
 			await get_tree().create_timer(4).timeout
 			get_tree().change_scene_to_file("res://scenes/main.tscn")
 			
-	if not mouse:
-		reticle.visible = false
 	
 	
+
+func _unhandled_input(event):
+	if event.is_action_pressed("scopeIn") and infish2:
+		$"Control/Part 2".queue_free()
+		$"Control/Part 3".show()
+		$ding.play()
+		infish2 = false
+	if event.is_action_pressed("shoot") and infish3:
+		$ding.play()
+		$"Control/Part 3".queue_free()
+		infish3 = false
+		$"Control/Part 4".show()
 
 
 func _on_area_2d_mouse_entered() -> void: 
@@ -43,3 +52,26 @@ func _on_area_2d_mouse_entered() -> void:
 
 func _on_area_2d_mouse_exited() -> void:
 	mouse = false
+
+
+func _on_aimoverfish_mouse_entered():
+	$ding.play()
+	$"Control/Part 1/Sprite2D/aimoverfish".queue_free()
+	$"Control/Part 1".hide()
+	$"Control/Part 2".show()
+
+
+func _on_scan_detect_mouse_entered():
+	infish2 = true
+
+
+func _on_scan_detect_mouse_exited():
+	infish2 = false
+
+
+func _on_shoot_detect_mouse_entered():
+	infish3 = true
+
+
+func _on_shoot_detect_mouse_exited():
+	infish3 = false
