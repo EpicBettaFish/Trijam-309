@@ -21,13 +21,26 @@ func _ready():
 		enemy = true
 		scanColor = Color(0.75,0.3,0.3)
 	
-	print(isEnemy)
 	
 	fishSprite.modulate.r = randf_range(0.25,0.80)
 	fishSprite.modulate.g = randf_range(0.25,0.80)
 	fishSprite.modulate.b = randf_range(0.25,1)
 	
 	fishScanSprite.modulate = fishSprite.modulate
+
+func become(fish_to_be):
+	match fish_to_be:
+		"shark":
+			$FishSprite.texture = load("res://assets/sprites/shark.png")
+			$ScanFish/ScanColor.texture = load("res://assets/sprites/shark_scan.png")
+			$ScanFish/ScanSkeleton.texture = load("res://assets/sprites/shark_skeleton.png")
+			$CollisionShape2D.shape.size = Vector2(46, 16)
+		"swordfish":
+			$FishSprite.texture = load("res://assets/sprites/swordfish.png")
+			$ScanFish/ScanColor.texture = load("res://assets/sprites/swordfish_scan.png")
+			$ScanFish/ScanSkeleton.texture = load("res://assets/sprites/swordfish_skeleton.png")
+			$CollisionShape2D.shape.size = Vector2(30, 8)
+			
 
 func _process(delta):
 	t_bob += t_increase*delta

@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://4l55raywkoj4" path="res://assets/audio/death8.mp3" id="9_3jqra"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xdyl1"]
+resource_local_to_scene = true
 size = Vector2(15, 9)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_iheg5"]
