@@ -12,6 +12,8 @@ var health: int = 10
 
 @onready var gun = $Gun
 
+@onready var explosionAnim = $explode
+
 var activeSpotters = 0
 var activeGoons = 0
 
@@ -20,14 +22,17 @@ var goon = preload("res://scenes/goon.tscn")
 var spotter = preload("res://scenes/spotter.tscn")
 
 func damage(amount) -> void:
-	health -= 1
-	healthLabel.text = str(health)
+	if health != 0:
+		health -= 1
+		healthLabel.text = str(health)
 	if health == 0:
-		get_tree().change_scene_to_file("res://scenes/end_screen.tscn")
+		explosionAnim.play("splosionend")
+	elif health > 0:
+		explosionAnim.play("splosion")
 
 func _process(delta):
 	moneyLabel.text = "$%0.2f" % Singleton.money
-	scoreLabel.text = "SCORE: %07d" % (Singleton.score * 100)
+	scoreLabel.text = "score: %07d" % (Singleton.score * 100)
 
 func _unhandled_input(event):
 	if event.is_action_pressed("DEBUG"):
@@ -62,3 +67,8 @@ func attemptSpawn(minionType) -> void:
 			activeSpotters += 1
 	
 	minionParent.add_child(newMinion)
+
+
+func _on_explode_animation_finished(anim_name):
+	if anim_name == "splosionend":
+		get_tree().change_scene_to_file("res://scenes/end_screen.tscn")
