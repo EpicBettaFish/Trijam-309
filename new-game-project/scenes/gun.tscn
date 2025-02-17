@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bmgj6jtbjvvxl"]
+[gd_scene load_steps=17 format=3 uid="uid://bmgj6jtbjvvxl"]
 
 [ext_resource type="Script" path="res://scripts/gun.gd" id="1_10gnp"]
 [ext_resource type="Texture2D" uid="uid://ccjas05giliw2" path="res://assets/sprites/sight.png" id="2_elag3"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b131ltycb83kc" path="res://assets/sprites/player.png" id="5_pustf"]
 [ext_resource type="Texture2D" uid="uid://cifopsm7xvdah" path="res://assets/sprites/scan_fill_mask.png" id="5_s4qk7"]
 [ext_resource type="AudioStream" uid="uid://ct7iwhuq2nlis" path="res://assets/audio/SniperSound.ogg" id="7_bma78"]
+[ext_resource type="Texture2D" uid="uid://t1ud58bxhru7" path="res://assets/sprites/scan_refresh.png" id="7_j7umv"]
 
 [sub_resource type="Animation" id="Animation_2iupb"]
 resource_name = "shoot"
@@ -50,6 +51,67 @@ radius = 22.0
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3k4le"]
 light_mode = 2
+
+[sub_resource type="Animation" id="Animation_brc2e"]
+resource_name = "refresh"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.3, 1.3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7i30c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7gb7q"]
+_data = {
+"RESET": SubResource("Animation_7i30c"),
+"refresh": SubResource("Animation_brc2e")
+}
 
 [node name="Gun" type="Node2D"]
 z_index = 1
@@ -116,8 +178,22 @@ hit_from_inside = true
 collide_with_areas = true
 collide_with_bodies = false
 
+[node name="ScanRefresh" type="Sprite2D" parent="SightParent/Sight"]
+show_behind_parent = true
+texture = ExtResource("7_j7umv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SightParent/Sight/ScanRefresh"]
+libraries = {
+"": SubResource("AnimationLibrary_7gb7q")
+}
+
 [node name="ScanCooldown" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 5.0
+one_shot = true
+
+[node name="ScanActiveTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
 
 [node name="GunFireSound" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(174, 66)
@@ -125,3 +201,4 @@ stream = ExtResource("7_bma78")
 volume_db = -3.0
 
 [connection signal="timeout" from="ScanCooldown" to="." method="_on_scan_cooldown_timeout"]
+[connection signal="timeout" from="ScanActiveTimer" to="." method="_on_scan_active_timer_timeout"]

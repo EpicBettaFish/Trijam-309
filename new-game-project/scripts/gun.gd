@@ -4,6 +4,8 @@ extends Node2D
 var maxScopedMovement: float = 20.0
 var scanSize: float = 0.5
 var gunCooldown: float = 1.0
+var scanCooldown: float = 5.0
+var scanUptime: float = 2.0
 #END
 
 var scopedIn: bool = false
@@ -15,12 +17,15 @@ var canScan: bool = true
 @onready var sightArea: CollisionShape2D = $SightParent/Sight/SightMask/SightArea/CollisionShape2D
 
 @onready var scanBar: TextureProgressBar = $SightParent/Sight/Scan
-@onready var scanCooldown: Timer = $ScanCooldown
+@onready var scanCooldownTimer: Timer = $ScanCooldown
+@onready var scanActiveTimer: Timer = $ScanActiveTimer
 
 @onready var shootRaycast: RayCast2D = $SightParent/Sight/ShootRaycast
 
 @onready var gunFireSound: AudioStreamPlayer2D = $GunFireSound
 @onready var playerAnim: AnimationPlayer = $Player/AnimationPlayer
+
+@onready var scanRefresh: AnimationPlayer = $SightParent/Sight/ScanRefresh/AnimationPlayer
 
 var scopeStartPos: Vector2
 
@@ -79,21 +84,34 @@ func scopeIn() -> void:
 	cooldownBarTween.tween_property(scanBar, "value", 0, 0.3)
 	
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	
+	scanActiveTimer.wait_time = scanUptime
+	scanActiveTimer.start()
+
 
 func scopeOut() -> void:
+	scanActiveTimer.stop()
 	scopedIn = false
 	sightMask.visible = scopedIn
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
 	get_viewport().warp_mouse(sight.global_position)
+	
 	sightArea.disabled = true
 	
-	scanCooldown.start()
+	scanCooldownTimer.wait_time = scanCooldown
+	scanCooldownTimer.start()
 	
 	if cooldownBarTween:
 		cooldownBarTween.kill()
 	cooldownBarTween = create_tween().set_trans(Tween.TRANS_LINEAR)
-	cooldownBarTween.tween_property(scanBar, "value", 100, 3)
+	cooldownBarTween.tween_property(scanBar, "value", 100, 5)
 
 
 func _on_scan_cooldown_timeout():
 	canScan = true
+	scanRefresh.play("refresh")
+
+
+func _on_scan_active_timer_timeout():
+	scopeOut()
