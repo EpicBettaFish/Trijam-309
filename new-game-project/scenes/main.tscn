@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_ir6g1"]
 [ext_resource type="Texture2D" uid="uid://b0d4llnn67xar" path="res://assets/sprites/background.png" id="2_k6gwg"]
-[ext_resource type="PackedScene" path="res://scenes/gun.tscn" id="4_p7ph5"]
+[ext_resource type="PackedScene" uid="uid://bmgj6jtbjvvxl" path="res://scenes/gun.tscn" id="4_p7ph5"]
 [ext_resource type="Texture2D" uid="uid://iksdu10y306v" path="res://assets/sprites/tower.png" id="5_kvjje"]
-[ext_resource type="PackedScene" path="res://scenes/fish_spawner.tscn" id="6_xa7tn"]
+[ext_resource type="PackedScene" uid="uid://efmjfh2j1vgd" path="res://scenes/fish_spawner.tscn" id="6_xa7tn"]
 [ext_resource type="FontFile" uid="uid://c0lb36ttk6adx" path="res://fonts/KiwiSoda.ttf" id="7_2rpbm"]
-[ext_resource type="PackedScene" path="res://scenes/shop.tscn" id="8_uiqim"]
+[ext_resource type="PackedScene" uid="uid://uk4sbcpf5kgb" path="res://scenes/shop.tscn" id="8_uiqim"]
 [ext_resource type="Texture2D" uid="uid://bs1bux46pq42g" path="res://assets/uisprites/lives.png" id="8_uqgq2"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1fjxp"]
@@ -60,7 +60,6 @@ shape = SubResource("RectangleShape2D_ns868")
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="UI"]
-offset_left = 205.0
 offset_top = 119.0
 offset_right = 240.0
 offset_bottom = 135.0
@@ -74,6 +73,22 @@ offset_bottom = 136.0
 theme_override_fonts/font = ExtResource("7_2rpbm")
 text = "10"
 horizontal_alignment = 2
+
+[node name="Money" type="Label" parent="UI"]
+offset_left = 3.0
+offset_top = 119.0
+offset_right = 15.0
+offset_bottom = 135.0
+theme_override_fonts/font = ExtResource("7_2rpbm")
+text = "$10000"
+
+[node name="Score" type="Label" parent="UI"]
+offset_top = 119.0
+offset_right = 240.0
+offset_bottom = 135.0
+theme_override_fonts/font = ExtResource("7_2rpbm")
+text = "score: 0000000"
+horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="UI"]
 offset_left = 208.0

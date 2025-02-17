@@ -29,7 +29,7 @@ func _unhandled_input(event):
 func _on_tower_entrance_area_entered(area):
 	if area.enemy:
 		damage(1)
-	area.queue_free()
+	area.die()
 
 func attemptSpawn(minionType) -> void:
 	var newMinion

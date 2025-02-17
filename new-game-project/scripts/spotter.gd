@@ -4,10 +4,6 @@ extends Node2D
 
 var spotterScan = preload("res://scenes/spotterScan.tscn")
 
-func _ready():
-	await get_tree().create_timer(5).timeout
-	$ScanTimer.start()
-
 func _on_scan_timer_timeout():
 	if !spawner.spawned_fish.is_empty():
 		var fish = spawner.spawned_fish.front()

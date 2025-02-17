@@ -67,14 +67,17 @@ func hit():
 		scream_audio.play()
 		remove_child(scream_audio)
 		get_tree().current_scene.add_child(scream_audio)
-		get_parent().spawned_fish.erase(self)
-		get_parent().evil_fish.erase(self)
-		Singleton.money += value
-		Singleton.score += value
-		
-		##GIVE SHOP MONEY HERE
-		
-		queue_free()
+		die()
+
+func die() -> void:
+	get_parent().spawned_fish.erase(self)
+	get_parent().evil_fish.erase(self)
+	Singleton.money += value
+	Singleton.score += value
+	
+	##GIVE SHOP MONEY HERE
+	
+	queue_free()
 
 func _on_area_entered(area):
 	var tween = create_tween().set_trans(Tween.TRANS_SINE)
