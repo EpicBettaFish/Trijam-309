@@ -1,7 +1,7 @@
 extends Node2D
 
 #ADJUSTED IN SHOP
-var scanSize: float = 0.25
+var scanSize: float = 0.5
 var gunCooldown: float = 1.0
 var scanCooldown: float = 5.0
 var scanUptime: float = 2.0
