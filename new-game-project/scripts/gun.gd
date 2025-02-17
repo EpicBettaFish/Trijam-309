@@ -1,7 +1,6 @@
 extends Node2D
 
 #ADJUSTED IN SHOP
-var maxScopedMovement: float = 20.0
 var scanSize: float = 0.5
 var gunCooldown: float = 1.0
 var scanCooldown: float = 5.0
@@ -48,10 +47,8 @@ func _unhandled_input(event) -> void:
 	if event.is_action_pressed("shoot") and canShoot:
 		shoot()
 	if event is InputEventMouseMotion:
-		sight.global_position = get_global_mouse_position()
-		if scopedIn:
-			sight.position = sight.position.limit_length(maxScopedMovement)
-		else:
+		if !scopedIn:
+			sight.global_position = get_global_mouse_position()
 			sightParent.global_position = get_global_mouse_position()
 
 func shoot() -> void:
@@ -90,8 +87,9 @@ func scopeIn() -> void:
 
 
 func scopeOut() -> void:
+	scanBar.value = 0
 	scanActiveTimer.stop()
-	sightMask.visible = scopedIn
+	sightMask.visible = false
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
 	get_viewport().warp_mouse(sight.global_position)
