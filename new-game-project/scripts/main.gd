@@ -7,6 +7,8 @@ var health: int = 10
 @onready var spotterSpawns = $Spawns/SpotterSpawns
 @onready var goonSpawns = $Spawns/GoonSpawns
 
+@onready var gun = $Gun
+
 var activeSpotters = 0
 var activeGoons = 0
 
