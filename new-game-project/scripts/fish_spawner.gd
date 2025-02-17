@@ -4,6 +4,7 @@ extends Node2D
 
 var cycles = 0
 
+
 var delay = 2.0
 
 var spawned_fish = []
