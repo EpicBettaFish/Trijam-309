@@ -1,15 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://uk4sbcpf5kgb"]
+[gd_scene load_steps=12 format=3 uid="uid://uk4sbcpf5kgb"]
 
 [ext_resource type="Texture2D" uid="uid://d15ngvl61it2n" path="res://assets/uisprites/background for oneshot.png" id="1_50gtv"]
 [ext_resource type="Script" path="res://scripts/shop.gd" id="1_kehe3"]
 [ext_resource type="Texture2D" uid="uid://cb5j3d42avxsy" path="res://assets/uisprites/background fo permanent upgrade.png" id="2_hxdhc"]
 [ext_resource type="Texture2D" uid="uid://dpks22tjfbuun" path="res://assets/uisprites/permanentfirerateupgrade.png" id="2_mmnix"]
-[ext_resource type="Texture2D" uid="uid://choga68454xkv" path="res://assets/uisprites/permanentgoonspeedupgrade.png" id="3_tk7qx"]
 [ext_resource type="Texture2D" uid="uid://dql7bpescj4ex" path="res://assets/uisprites/permanentscanupgrade.png" id="4_6qcpn"]
 [ext_resource type="FontFile" uid="uid://c0lb36ttk6adx" path="res://fonts/KiwiSoda.ttf" id="4_nqagg"]
+[ext_resource type="Texture2D" uid="uid://dieewvsv1qy1" path="res://assets/uisprites/permanentScanTimeUpgrade.png" id="5_fegfv"]
 [ext_resource type="Texture2D" uid="uid://dhuqudy6djddf" path="res://assets/uisprites/scan radius upgrade.png" id="6_gqkvc"]
 [ext_resource type="Texture2D" uid="uid://dr72v67qcau4x" path="res://assets/uisprites/increasegunneramountupgrade.png" id="7_fnhno"]
 [ext_resource type="Texture2D" uid="uid://gdsnu5qjjgpg" path="res://assets/uisprites/increasespotteramountupgrade.png" id="8_bywal"]
+[ext_resource type="FontFile" uid="uid://bf2dxl6qfkmqk" path="res://fonts/I-pixel-u.ttf" id="11_ji3lm"]
 
 [node name="Shop" type="Control"]
 layout_mode = 3
@@ -20,6 +21,12 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_kehe3")
+upgrade1Desc = "Decreases scanner cooldown by [color=yellow]20%[/color]. can be upgraded [color=cyan]indefinitely"
+upgrade2Desc = "Increases scan duration by [color=yellow]35%[/color]. Can be upgraded [color=cyan]indefinitely[/color]."
+upgrade3Desc = "Increases firerate by [color=yellow]15%[/color]. Can be upgraded [color=cyan]indefinitely."
+upgrade4Desc = "[color=yellow]Doubles[/color] scan radius. Can be upgraded [color=cyan]once[/color]."
+upgrade5Desc = "Creates [color=yellow]ONE SCANNER[/color]. Automatically scans fish and detects [color=red]terrorists[/color]."
+upgrade6Desc = "Creates [color=yellow]ONE GUNNER[/color]. Automatically shoots confirmed [color=red]terrorists[/color]."
 
 [node name="Perma" type="TextureRect" parent="."]
 layout_mode = 1
@@ -56,7 +63,7 @@ offset_left = 39.0
 offset_top = 12.0
 offset_right = 59.0
 offset_bottom = 32.0
-texture_normal = ExtResource("3_tk7qx")
+texture_normal = ExtResource("5_fegfv")
 
 [node name="SUPrice" type="Label" parent="Perma/SpotterCooldown"]
 layout_mode = 0
@@ -154,9 +161,36 @@ theme_override_fonts/font = ExtResource("4_nqagg")
 text = "10
 "
 
+[node name="Tooltip" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 48.0
+offset_right = 174.0
+offset_bottom = 88.0
+mouse_filter = 1
+color = Color(0, 0, 0, 1)
+
+[node name="tooltip text" type="RichTextLabel" parent="Tooltip"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 104.0
+offset_bottom = 38.0
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("11_ji3lm")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "Creates [color=yellow]ONE GUNNER[/color]. Automatically shoots confirmed [color=red]terrorists[/color]."
+
 [connection signal="button_up" from="Perma/FireRate" to="." method="_on_fire_rate_button_up"]
+[connection signal="mouse_entered" from="Perma/FireRate" to="." method="_on_fire_rate_mouse_entered"]
 [connection signal="button_up" from="Perma/SpotterCooldown" to="." method="_on_spotter_cooldown_button_up"]
+[connection signal="mouse_entered" from="Perma/SpotterCooldown" to="." method="_on_spotter_cooldown_mouse_entered"]
 [connection signal="button_up" from="Perma/ScanCooldown" to="." method="_on_scan_cooldown_button_up"]
+[connection signal="mouse_entered" from="Perma/ScanCooldown" to="." method="_on_scan_cooldown_mouse_entered"]
 [connection signal="button_up" from="One/ScanRadius" to="." method="_on_scan_radius_button_up"]
+[connection signal="mouse_entered" from="One/ScanRadius" to="." method="_on_scan_radius_mouse_entered"]
 [connection signal="button_up" from="One/GoonGunner" to="." method="_on_goon_press" binds= ["gunner"]]
+[connection signal="mouse_entered" from="One/GoonGunner" to="." method="_on_goon_gunner_mouse_entered"]
 [connection signal="button_up" from="One/GoonSpotter" to="." method="_on_goon_press" binds= ["spotter"]]
+[connection signal="mouse_entered" from="One/GoonSpotter" to="." method="_on_goon_spotter_mouse_entered"]

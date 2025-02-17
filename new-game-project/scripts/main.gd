@@ -52,18 +52,22 @@ func attemptSpawn(minionType) -> void:
 	
 	match minionType:
 		"gunner":
-			if activeGoons >= 5:
-				return
 			newMinion = goon.instantiate()
 			spawns = goonSpawns.get_children()
-			newMinion.global_position = spawns[activeGoons].global_position
+			if activeGoons >= 5:
+				newMinion.global_position = spawns[6].global_position
+			else:
+				newMinion.global_position = spawns[activeGoons].global_position
 			activeGoons += 1
 		"spotter":
 			if activeSpotters >= 5:
 				return
 			newMinion = spotter.instantiate()
 			spawns = spotterSpawns.get_children()
-			newMinion.global_position = spawns[activeSpotters].global_position
+			if activeSpotters >= 5:
+				newMinion.global_position = spawns[6].global_position
+			else:
+				newMinion.global_position = spawns[activeSpotters].global_position
 			activeSpotters += 1
 	
 	minionParent.add_child(newMinion)

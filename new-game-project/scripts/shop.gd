@@ -18,9 +18,15 @@ signal updateValues
 
 
 
+@export_multiline var upgrade1Desc = ""
+@export_multiline var upgrade2Desc = ""
+@export_multiline var upgrade3Desc = ""
+@export_multiline var upgrade4Desc = ""
+@export_multiline var upgrade5Desc = ""
+@export_multiline var upgrade6Desc = ""
 
-
-
+@onready var tooltipLabel = $"Tooltip/tooltip text"
+@onready var tooltip = $Tooltip
 
 
 
@@ -43,7 +49,7 @@ func _process(delta: float) -> void:
 	gs_price.text = str(goon_cost)
 	if Input.is_action_just_pressed("toggleShop"):
 		visible = !visible
-		
+		tooltip.visible = false
 		
 
 func _on_fire_rate_button_up() -> void:
@@ -97,3 +103,33 @@ func _on_goon_press(type):
 			goon_spotter.visible = false
 			gs_price.visible = false
 			
+
+
+func _on_scan_cooldown_mouse_entered():
+	tooltipLabel.text = upgrade1Desc
+	tooltip.visible = true
+
+
+func _on_spotter_cooldown_mouse_entered():
+	tooltipLabel.text = upgrade2Desc
+	tooltip.visible = true
+
+
+func _on_fire_rate_mouse_entered():
+	tooltipLabel.text = upgrade3Desc
+	tooltip.visible = true
+
+
+func _on_scan_radius_mouse_entered():
+	tooltipLabel.text = upgrade4Desc
+	tooltip.visible = true
+
+
+func _on_goon_spotter_mouse_entered():
+	tooltipLabel.text = upgrade5Desc
+	tooltip.visible = true
+
+
+func _on_goon_gunner_mouse_entered():
+	tooltipLabel.text = upgrade6Desc
+	tooltip.visible = true
