@@ -83,25 +83,45 @@ texture = ExtResource("8_uqgq2")
 stretch_mode = 2
 
 [node name="Shop2" parent="UI" instance=ExtResource("8_uiqim")]
+visible = false
 
 [node name="Spotter" parent="." instance=ExtResource("8_5xxp1")]
 z_index = 1
-position = Vector2(167, 78)
+position = Vector2(162, 79)
 
 [node name="Spotter2" parent="." instance=ExtResource("8_5xxp1")]
 z_index = 1
-position = Vector2(174, 87)
+position = Vector2(172, 88)
 
 [node name="Spotter3" parent="." instance=ExtResource("8_5xxp1")]
 z_index = 1
-position = Vector2(182, 96)
+position = Vector2(181, 97)
 
 [node name="Spotter4" parent="." instance=ExtResource("8_5xxp1")]
 z_index = 1
-position = Vector2(189, 105)
+position = Vector2(189, 108)
 
 [node name="Spotter5" parent="." instance=ExtResource("8_5xxp1")]
 z_index = 1
-position = Vector2(196, 116)
+position = Vector2(197, 118)
+
+[node name="Spawns" type="Node2D" parent="."]
+
+[node name="SpotterSpawns" type="Node2D" parent="Spawns"]
+
+[node name="Spawn1" type="Marker2D" parent="Spawns/SpotterSpawns"]
+position = Vector2(162, 79)
+
+[node name="Spawn2" type="Marker2D" parent="Spawns/SpotterSpawns"]
+position = Vector2(172, 88)
+
+[node name="Spawn3" type="Marker2D" parent="Spawns/SpotterSpawns"]
+position = Vector2(181, 97)
+
+[node name="Spawn4" type="Marker2D" parent="Spawns/SpotterSpawns"]
+position = Vector2(189, 108)
+
+[node name="Spawn5" type="Marker2D" parent="Spawns/SpotterSpawns"]
+position = Vector2(197, 118)
 
 [connection signal="area_entered" from="Tower/TowerEntrance" to="." method="_on_tower_entrance_area_entered"]
