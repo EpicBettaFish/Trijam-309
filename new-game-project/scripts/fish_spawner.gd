@@ -5,7 +5,7 @@ extends Node2D
 var cycles = 0
 
 
-var delay = 2.0
+var delay = 3.5
 
 var spawned_fish = []
 var evil_fish = []
@@ -33,7 +33,7 @@ func _process(delta):
 
 
 func _on_timer_timeout():
-	var timer_delay:float = clamp(cycles / 100, 0.0, 1.5)
+	var timer_delay:float = clamp(cycles / 100, 0.0, 3.0)
 	cycles += 1
 	spawn()
 	$Timer.start(delay - timer_delay)
