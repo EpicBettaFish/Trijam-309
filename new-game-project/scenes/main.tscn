@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://efmjfh2j1vgd" path="res://scenes/fish_spawner.tscn" id="6_xa7tn"]
 [ext_resource type="FontFile" uid="uid://c0lb36ttk6adx" path="res://fonts/KiwiSoda.ttf" id="7_2rpbm"]
 [ext_resource type="PackedScene" uid="uid://sify56clk40m" path="res://scenes/spotter.tscn" id="8_5xxp1"]
-[ext_resource type="PackedScene" path="res://scenes/shop.tscn" id="8_uiqim"]
+[ext_resource type="PackedScene" uid="uid://uk4sbcpf5kgb" path="res://scenes/shop.tscn" id="8_uiqim"]
 [ext_resource type="Texture2D" uid="uid://bs1bux46pq42g" path="res://assets/uisprites/lives.png" id="8_uqgq2"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1fjxp"]

@@ -1,10 +1,11 @@
 extends Control
 
+
+
+
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("toggleShop"):
 		visible = !visible
-
-
 
 
 func _on_fire_rate_button_up() -> void:
