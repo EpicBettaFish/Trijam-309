@@ -8,7 +8,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	global_position += 500*delta
+	global_position += Vector2(1200*delta, 0).rotated(rotation)
 
 
 func _on_timer_timeout():

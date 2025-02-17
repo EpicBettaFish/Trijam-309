@@ -7,13 +7,15 @@
 script = ExtResource("1_wc63k")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-lifetime = 3.0
+amount = 12
 explosiveness = 0.83
 texture = ExtResource("2_0hep1")
-gravity = Vector2(-3, 0)
+gravity = Vector2(-9, 0)
+initial_velocity_min = 12.0
+initial_velocity_max = 12.0
+angle_min = -501.0
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
 one_shot = true
 autostart = true
 
