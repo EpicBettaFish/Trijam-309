@@ -32,7 +32,7 @@ material = SubResource("CanvasItemMaterial_1fjxp")
 offset_right = 240.0
 offset_bottom = 135.0
 mouse_filter = 2
-color = Color(0, 0.486275, 0, 0.388235)
+color = Color(0, 0.376471, 0, 0.756863)
 metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -83,6 +83,6 @@ texture = ExtResource("8_uqgq2")
 stretch_mode = 2
 
 [node name="Spotter" parent="." instance=ExtResource("8_5xxp1")]
-position = Vector2(165, 65)
+position = Vector2(166, 64)
 
 [connection signal="area_entered" from="Tower/TowerEntrance" to="." method="_on_tower_entrance_area_entered"]
