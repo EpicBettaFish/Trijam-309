@@ -1,10 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://codyu3ehxf8qd"]
+[gd_scene load_steps=4 format=3 uid="uid://b4xh0m5eqhqoc"]
 
 [ext_resource type="Script" path="res://scripts/end_screen.gd" id="1_8mrpk"]
 [ext_resource type="FontFile" uid="uid://c0lb36ttk6adx" path="res://fonts/KiwiSoda.ttf" id="2_foj6s"]
+[ext_resource type="Texture2D" uid="uid://b0d4llnn67xar" path="res://assets/sprites/background.png" id="2_kmb7n"]
 
 [node name="end screen" type="Node2D"]
 script = ExtResource("1_8mrpk")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 240.0
+offset_bottom = 136.0
+texture = ExtResource("2_kmb7n")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 76.0

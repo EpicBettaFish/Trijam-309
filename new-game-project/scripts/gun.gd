@@ -14,6 +14,7 @@ var scanUptime: float = 1.0
 var scopedIn: bool = false
 var canScan: bool = true
 
+@onready var boolet_pl = preload("res://scenes/boolet.tscn")
 @onready var sight: Sprite2D = $SightParent/Sight
 @onready var sightMask: PointLight2D = $SightParent/Sight/SightMask
 @onready var sightParent: Node2D = $SightParent
@@ -59,6 +60,13 @@ func _unhandled_input(event) -> void:
 			sightParent.global_position = get_global_mouse_position()
 
 func shoot() -> void:
+	#bubble particles
+	var bullet = boolet_pl.instantiate()
+	add_child(bullet)
+	bullet.global_position = $GunFireSound.global_position
+	bullet.look_at(get_global_mouse_position())
+	
+	#actual shooting
 	if shootRaycast.is_colliding():
 		shootRaycast.get_collider().hit()
 	playerAnim.play("shoot")
