@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://o3v1u4iok70w"]
 
-[ext_resource type="Script" path="res://scenes/introduction.gd" id="1_mfqi6"]
+[ext_resource type="Script" path="res://scripts/introduction.gd" id="1_mfqi6"]
 [ext_resource type="Texture2D" uid="uid://cxtxm3jovqxbj" path="res://assets/sprites/fish_small.png" id="1_v827a"]
 [ext_resource type="Texture2D" uid="uid://cetwgcptb2stb" path="res://assets/sprites/fish_small_scan.png" id="1_yg6hk"]
 [ext_resource type="Texture2D" uid="uid://cmeq7r3on45yy" path="res://assets/sprites/fish_skeleton.png" id="2_etjs2"]

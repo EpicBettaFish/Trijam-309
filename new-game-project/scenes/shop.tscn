@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://uk4sbcpf5kgb"]
+[gd_scene load_steps=10 format=3 uid="uid://uk4sbcpf5kgb"]
 
 [ext_resource type="Texture2D" uid="uid://d15ngvl61it2n" path="res://assets/uisprites/background for oneshot.png" id="1_50gtv"]
+[ext_resource type="Script" path="res://scripts/shop.gd" id="1_kehe3"]
 [ext_resource type="Texture2D" uid="uid://cb5j3d42avxsy" path="res://assets/uisprites/background fo permanent upgrade.png" id="2_hxdhc"]
+[ext_resource type="Texture2D" uid="uid://dpks22tjfbuun" path="res://assets/uisprites/permanentfirerateupgrade.png" id="2_mmnix"]
+[ext_resource type="Texture2D" uid="uid://choga68454xkv" path="res://assets/uisprites/permanentgoonspeedupgrade.png" id="3_tk7qx"]
+[ext_resource type="Texture2D" uid="uid://dql7bpescj4ex" path="res://assets/uisprites/permanentscanupgrade.png" id="4_6qcpn"]
+[ext_resource type="Texture2D" uid="uid://dhuqudy6djddf" path="res://assets/uisprites/scan radius upgrade.png" id="6_gqkvc"]
+[ext_resource type="Texture2D" uid="uid://dr72v67qcau4x" path="res://assets/uisprites/increasegunneramountupgrade.png" id="7_fnhno"]
+[ext_resource type="Texture2D" uid="uid://gdsnu5qjjgpg" path="res://assets/uisprites/increasespotteramountupgrade.png" id="8_bywal"]
 
 [node name="Shop" type="Control"]
 layout_mode = 3
@@ -10,8 +17,46 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_kehe3")
 
-[node name="OneshotTexture" type="TextureRect" parent="."]
+[node name="Perma" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_right = 50.0
+offset_bottom = 40.0
+grow_horizontal = 2
+mouse_filter = 2
+texture = ExtResource("1_50gtv")
+
+[node name="FireRate" type="TextureButton" parent="Perma"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 7.0
+offset_right = 92.0
+offset_bottom = 32.0
+texture_normal = ExtResource("2_mmnix")
+
+[node name="SpotterCooldown" type="TextureButton" parent="Perma"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 10.0
+offset_right = 59.0
+offset_bottom = 30.0
+texture_normal = ExtResource("3_tk7qx")
+
+[node name="ScanCooldown" type="TextureButton" parent="Perma"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 30.0
+offset_bottom = 30.0
+texture_normal = ExtResource("4_6qcpn")
+
+[node name="One" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -23,30 +68,33 @@ offset_top = -40.0
 offset_right = 50.0
 grow_horizontal = 2
 grow_vertical = 0
-texture = ExtResource("1_50gtv")
-
-[node name="TextureButton" type="TextureButton" parent="OneshotTexture"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="TextureButton2" type="TextureButton" parent="OneshotTexture"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="TextureButton" type="TextureButton" parent="OneshotTexture/TextureButton2"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="PermaTexture" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -50.0
-offset_right = 50.0
-offset_bottom = 40.0
-grow_horizontal = 2
+mouse_filter = 2
 texture = ExtResource("2_hxdhc")
+
+[node name="ScanRadius" type="TextureButton" parent="One"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 10.0
+offset_right = 31.0
+offset_bottom = 30.0
+texture_normal = ExtResource("6_gqkvc")
+
+[node name="GoonGunner" type="TextureButton" parent="One"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 10.0
+offset_right = 88.0
+offset_bottom = 30.0
+texture_normal = ExtResource("7_fnhno")
+
+[node name="GoonSpotter" type="TextureButton" parent="One"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 10.0
+offset_right = 60.0
+offset_bottom = 30.0
+texture_normal = ExtResource("8_bywal")
+
+[connection signal="button_up" from="Perma/FireRate" to="." method="_on_fire_rate_button_up"]
+[connection signal="button_up" from="Perma/SpotterCooldown" to="." method="_on_spotter_cooldown_button_up"]
+[connection signal="button_up" from="Perma/ScanCooldown" to="." method="_on_scan_cooldown_button_up"]
