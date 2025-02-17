@@ -83,7 +83,7 @@ offset_bottom = 134.0
 texture = ExtResource("8_uqgq2")
 stretch_mode = 2
 
-[node name="Shop2" parent="UI" instance=ExtResource("8_uiqim")]
+[node name="Shop" parent="UI" instance=ExtResource("8_uiqim")]
 visible = false
 
 [node name="Spawns" type="Node2D" parent="."]
@@ -123,3 +123,4 @@ position = Vector2(137, 110)
 position = Vector2(140, 119)
 
 [connection signal="area_entered" from="Tower/TowerEntrance" to="." method="_on_tower_entrance_area_entered"]
+[connection signal="updateValues" from="UI/Shop" to="Gun" method="_on_shop_update_values"]

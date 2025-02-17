@@ -19,6 +19,8 @@ var spotter = preload("res://scenes/spotter.tscn")
 func damage(amount) -> void:
 	health -= 1
 	healthLabel.text = str(health)
+	if health == 0:
+		get_tree().change_scene_to_file("res://scenes/end_screen.tscn")
 
 func _unhandled_input(event):
 	if event.is_action_pressed("DEBUG"):
