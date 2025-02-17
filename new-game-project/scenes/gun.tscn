@@ -129,6 +129,7 @@ libraries = {
 }
 
 [node name="SightParent" type="Node2D" parent="."]
+z_index = 1
 
 [node name="Sight" type="Sprite2D" parent="SightParent"]
 texture = ExtResource("2_elag3")

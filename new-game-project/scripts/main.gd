@@ -5,7 +5,7 @@ var health: int = 10
 
 func damage(amount) -> void:
 	health -= 1
-	healthLabel.text = "HEALTH - %s" % health
+	healthLabel.text = str(health)
 
 func _unhandled_input(event):
 	if event.is_action_pressed("DEBUG"):
@@ -15,3 +15,4 @@ func _unhandled_input(event):
 func _on_tower_entrance_area_entered(area):
 	if area.enemy:
 		damage(1)
+	area.queue_free()
