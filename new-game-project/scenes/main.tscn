@@ -195,6 +195,9 @@ position = Vector2(189, 108)
 [node name="Spawn5" type="Marker2D" parent="Spawns/SpotterSpawns"]
 position = Vector2(197, 118)
 
+[node name="Spawn6" type="Marker2D" parent="Spawns/SpotterSpawns"]
+position = Vector2(267, 81)
+
 [node name="GoonSpawns" type="Node2D" parent="Spawns"]
 
 [node name="Spawn1" type="Marker2D" parent="Spawns/GoonSpawns"]
@@ -211,6 +214,9 @@ position = Vector2(137, 110)
 
 [node name="Spawn5" type="Marker2D" parent="Spawns/GoonSpawns"]
 position = Vector2(140, 119)
+
+[node name="Spawn6" type="Marker2D" parent="Spawns/GoonSpawns"]
+position = Vector2(267, 97)
 
 [node name="explode" type="AnimationPlayer" parent="."]
 libraries = {
