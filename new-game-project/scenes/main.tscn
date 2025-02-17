@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b82ojgxnmx4oi"]
+[gd_scene load_steps=11 format=3 uid="uid://b82ojgxnmx4oi"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_ir6g1"]
 [ext_resource type="Texture2D" uid="uid://b0d4llnn67xar" path="res://assets/sprites/background.png" id="2_k6gwg"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://iksdu10y306v" path="res://assets/sprites/tower.png" id="5_kvjje"]
 [ext_resource type="PackedScene" uid="uid://efmjfh2j1vgd" path="res://scenes/fish_spawner.tscn" id="6_xa7tn"]
 [ext_resource type="FontFile" uid="uid://c0lb36ttk6adx" path="res://fonts/KiwiSoda.ttf" id="7_2rpbm"]
+[ext_resource type="PackedScene" uid="uid://sify56clk40m" path="res://scenes/spotter.tscn" id="8_5xxp1"]
 [ext_resource type="Texture2D" uid="uid://bs1bux46pq42g" path="res://assets/uisprites/lives.png" id="8_uqgq2"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1fjxp"]
@@ -80,5 +81,8 @@ offset_right = 222.0
 offset_bottom = 134.0
 texture = ExtResource("8_uqgq2")
 stretch_mode = 2
+
+[node name="Spotter" parent="." instance=ExtResource("8_5xxp1")]
+position = Vector2(165, 65)
 
 [connection signal="area_entered" from="Tower/TowerEntrance" to="." method="_on_tower_entrance_area_entered"]
