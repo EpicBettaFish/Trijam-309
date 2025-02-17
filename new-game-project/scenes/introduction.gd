@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 		reticle.visible = true
 		reticle.position.x = mousepos.x
 		reticle.position.y = mousepos.y
-		if Input.is_action_just_pressed("lefttheclick") == true and mouseaim:
+		if Input.is_action_just_pressed("shoot") == true and mouseaim:
 			mouseaim = false
 			var sprite2d2 = Sprite2D.new()
 			add_child(sprite2d2)
