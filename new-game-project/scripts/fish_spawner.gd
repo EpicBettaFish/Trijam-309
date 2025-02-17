@@ -5,7 +5,7 @@ extends Node2D
 var cycles = 0
 
 
-var delay = 3.5
+var delay = 2.5
 
 var spawned_fish = []
 var evil_fish = []
@@ -21,9 +21,9 @@ func spawn():
 	add_child(fish)
 	if cycles > 30:
 		var roll = randi_range(1, 20)
-		if roll < 3 && cycles > 120:
+		if roll < 3 && cycles > 100:
 			fish.become("shark")
-		elif roll < 6:
+		elif roll < 5:
 			fish.become("swordfish")
 	
 	spawned_fish.append(fish)
@@ -33,7 +33,7 @@ func _process(delta):
 
 
 func _on_timer_timeout():
-	var timer_delay:float = clamp(cycles / 100, 0.0, 3.0)
+	var timer_delay:float = clamp(cycles / 100, 0.0, 2.0)
 	cycles += 1
 	spawn()
 	$Timer.start(delay - timer_delay)
