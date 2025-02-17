@@ -40,6 +40,13 @@ offset_right = 92.0
 offset_bottom = 32.0
 texture_normal = ExtResource("2_mmnix")
 
+[node name="FRPrice" type="Label" parent="Perma/FireRate"]
+layout_mode = 0
+offset_left = -137.0
+offset_top = -7.0
+offset_right = -97.0
+offset_bottom = 16.0
+
 [node name="SpotterCooldown" type="TextureButton" parent="Perma"]
 layout_mode = 0
 offset_left = 39.0
@@ -48,6 +55,11 @@ offset_right = 59.0
 offset_bottom = 30.0
 texture_normal = ExtResource("3_tk7qx")
 
+[node name="SUPrice" type="Label" parent="Perma/SpotterCooldown"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
 [node name="ScanCooldown" type="TextureButton" parent="Perma"]
 layout_mode = 0
 offset_left = 10.0
@@ -55,6 +67,11 @@ offset_top = 10.0
 offset_right = 30.0
 offset_bottom = 30.0
 texture_normal = ExtResource("4_6qcpn")
+
+[node name="SCPrice" type="Label" parent="Perma/ScanCooldown"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
 
 [node name="One" type="TextureRect" parent="."]
 layout_mode = 1
@@ -79,6 +96,11 @@ offset_right = 31.0
 offset_bottom = 30.0
 texture_normal = ExtResource("6_gqkvc")
 
+[node name="SRPrice" type="Label" parent="One/ScanRadius"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
 [node name="GoonGunner" type="TextureButton" parent="One"]
 layout_mode = 0
 offset_left = 68.0
@@ -87,6 +109,11 @@ offset_right = 88.0
 offset_bottom = 30.0
 texture_normal = ExtResource("7_fnhno")
 
+[node name="GGPrice" type="Label" parent="One/GoonGunner"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
 [node name="GoonSpotter" type="TextureButton" parent="One"]
 layout_mode = 0
 offset_left = 40.0
@@ -94,6 +121,11 @@ offset_top = 10.0
 offset_right = 60.0
 offset_bottom = 30.0
 texture_normal = ExtResource("8_bywal")
+
+[node name="GSPrice" type="Label" parent="One/GoonSpotter"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
 
 [connection signal="button_up" from="Perma/FireRate" to="." method="_on_fire_rate_button_up"]
 [connection signal="button_up" from="Perma/SpotterCooldown" to="." method="_on_spotter_cooldown_button_up"]
