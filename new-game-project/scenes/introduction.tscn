@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://o3v1u4iok70w"]
+[gd_scene load_steps=14 format=3 uid="uid://o3v1u4iok70w"]
 
+[ext_resource type="Script" path="res://scenes/introduction.gd" id="1_mfqi6"]
 [ext_resource type="Texture2D" uid="uid://cxtxm3jovqxbj" path="res://assets/sprites/fish_small.png" id="1_v827a"]
 [ext_resource type="Texture2D" uid="uid://cetwgcptb2stb" path="res://assets/sprites/fish_small_scan.png" id="1_yg6hk"]
 [ext_resource type="Texture2D" uid="uid://cmeq7r3on45yy" path="res://assets/sprites/fish_skeleton.png" id="2_etjs2"]
@@ -10,17 +11,20 @@
 [ext_resource type="Texture2D" uid="uid://gdsnu5qjjgpg" path="res://assets/uisprites/increasespotteramountupgrade.png" id="8_677bo"]
 [ext_resource type="Texture2D" uid="uid://dr72v67qcau4x" path="res://assets/uisprites/increasegunneramountupgrade.png" id="9_nwbma"]
 [ext_resource type="Texture2D" uid="uid://dhuqudy6djddf" path="res://assets/uisprites/scan radius upgrade.png" id="10_20dn2"]
+[ext_resource type="AudioStream" uid="uid://ct7iwhuq2nlis" path="res://assets/audio/SniperSound.ogg" id="12_664r7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4xdh4"]
 size = Vector2(65.5556, 21.1111)
 
 [node name="introduction" type="Node2D"]
+script = ExtResource("1_mfqi6")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 241.0
 offset_bottom = 134.0
+mouse_filter = 1
 
 [node name="Sprite2D2" type="Sprite2D" parent="Control"]
 modulate = Color(1, 0, 0.0196078, 1)
@@ -131,12 +135,28 @@ offset_top = 113.0
 offset_right = 408.0
 offset_bottom = 202.0
 scale = Vector2(0.6, 0.6)
+mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("3_7g3l2")
 bbcode_enabled = true
 text = "SHOOT the [color=#ff0000]START[/color] button to make the [shake]DANGEROUS CHOICE"
 
-[node name="Area2D" type="Area2D" parent="Control/RichTextLabel"]
+[node name="aimreticle" type="Sprite2D" parent="Control"]
+visible = false
+position = Vector2(2, -1)
+scale = Vector2(1.02083, 1)
+texture = ExtResource("4_g7clo")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/RichTextLabel/Area2D"]
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(33, 113)
+scale = Vector2(0.6, 0.6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(125, 9.44443)
 shape = SubResource("RectangleShape2D_4xdh4")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(109, 119)
+stream = ExtResource("12_664r7")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
