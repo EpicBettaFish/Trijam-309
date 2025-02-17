@@ -120,5 +120,5 @@ func _on_scan_active_timer_timeout():
 	scopeOut()
 
 
-func firerateUpgrade() -> void:
+func updateUpgrades() -> void:
 	gunCooldown = originalFirerate / (1 + (0.15 * Singleton.firerateUpgrade))
