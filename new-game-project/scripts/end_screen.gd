@@ -1,9 +1,9 @@
 extends Node2D
-
+var score = Singleton.score
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # add high score append
+	$Highscorelabel.text = "Highscore: "+str(score)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

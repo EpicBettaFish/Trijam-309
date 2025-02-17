@@ -105,7 +105,7 @@ func scopeOut() -> void:
 	if cooldownBarTween:
 		cooldownBarTween.kill()
 	cooldownBarTween = create_tween().set_trans(Tween.TRANS_LINEAR)
-	cooldownBarTween.tween_property(scanBar, "value", 100, 5)
+	cooldownBarTween.tween_property(scanBar, "value", 100, scanCooldown)
 	
 	await get_tree().create_timer(0.01).timeout
 	scopedIn = false
@@ -120,5 +120,7 @@ func _on_scan_active_timer_timeout():
 	scopeOut()
 
 
-func updateUpgrades() -> void:
-	gunCooldown = originalFirerate / (1 + (0.15 * Singleton.firerateUpgrade))
+func _on_shop_update_values() -> void:
+	gunCooldown = originalFirerate / (1 + (0.15 * Singleton.fire_rate_upgrade))
+	if Singleton.scan_radius_upgrade:
+		scanSize = 0.9
