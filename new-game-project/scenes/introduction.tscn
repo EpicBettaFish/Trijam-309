@@ -1,11 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://o3v1u4iok70w"]
+[gd_scene load_steps=16 format=3 uid="uid://o3v1u4iok70w"]
 
 [ext_resource type="Script" path="res://scripts/introduction.gd" id="1_mfqi6"]
 [ext_resource type="Texture2D" uid="uid://cxtxm3jovqxbj" path="res://assets/sprites/fish_small.png" id="1_v827a"]
 [ext_resource type="Texture2D" uid="uid://cetwgcptb2stb" path="res://assets/sprites/fish_small_scan.png" id="1_yg6hk"]
 [ext_resource type="Texture2D" uid="uid://iksdu10y306v" path="res://assets/sprites/tower.png" id="2_1mg12"]
 [ext_resource type="Texture2D" uid="uid://cmeq7r3on45yy" path="res://assets/sprites/fish_skeleton.png" id="2_etjs2"]
+[ext_resource type="Texture2D" uid="uid://b0d4llnn67xar" path="res://assets/sprites/background.png" id="2_svy4v"]
 [ext_resource type="FontFile" uid="uid://bf2dxl6qfkmqk" path="res://fonts/I-pixel-u.ttf" id="3_7g3l2"]
+[ext_resource type="Texture2D" uid="uid://0fa7asb1i66l" path="res://assets/sprites/gun_bubbles.png" id="10_roogi"]
 [ext_resource type="AudioStream" uid="uid://ct7iwhuq2nlis" path="res://assets/audio/SniperSound.ogg" id="12_664r7"]
 [ext_resource type="AudioStream" uid="uid://dag4d5c6qpxcm" path="res://assets/audio/ding.mp3" id="13_br64k"]
 [ext_resource type="PackedScene" uid="uid://bmgj6jtbjvvxl" path="res://scenes/gun.tscn" id="13_eq6ba"]
@@ -24,6 +26,13 @@ size = Vector2(65.5556, 21.1111)
 
 [node name="introduction" type="Node2D"]
 script = ExtResource("1_mfqi6")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+offset_right = 240.0
+offset_bottom = 136.0
+texture = ExtResource("2_svy4v")
+metadata/_edit_use_anchors_ = true
 
 [node name="Gun" parent="." instance=ExtResource("13_eq6ba")]
 z_index = 3
@@ -53,6 +62,7 @@ position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_y5nvb")
 
 [node name="Label" type="Label" parent="Control/Part 1"]
+z_index = 10
 offset_left = 2.0
 offset_top = 7.0
 offset_right = 222.0
@@ -89,6 +99,7 @@ material = SubResource("CanvasItemMaterial_yppku")
 texture = ExtResource("2_etjs2")
 
 [node name="Label2" type="Label" parent="Control/Part 2"]
+z_index = 10
 offset_top = 33.0
 offset_right = 254.0
 offset_bottom = 73.0
@@ -107,6 +118,7 @@ shape = SubResource("RectangleShape2D_r5wrb")
 [node name="Part 3" type="Node2D" parent="Control"]
 
 [node name="Label3" type="RichTextLabel" parent="Control/Part 3"]
+z_index = 10
 offset_left = 3.0
 offset_top = 46.0
 offset_right = 243.0
@@ -174,6 +186,13 @@ texture = ExtResource("2_etjs2")
 
 [node name="Part 4" type="Node2D" parent="Control"]
 
+[node name="ColorRect" type="ColorRect" parent="Control/Part 4"]
+offset_left = 27.0
+offset_top = 113.0
+offset_right = 217.0
+offset_bottom = 137.0
+color = Color(0, 0, 0, 1)
+
 [node name="Area2D" type="Area2D" parent="Control/Part 4"]
 position = Vector2(33, 113)
 scale = Vector2(0.6, 0.6)
@@ -189,7 +208,6 @@ offset_right = 408.0
 offset_bottom = 202.0
 scale = Vector2(0.6, 0.6)
 mouse_filter = 1
-theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("3_7g3l2")
 bbcode_enabled = true
 text = "SHOOT the [color=#ff0000]START[/color] button to make the [shake]DANGEROUS CHOICE"
@@ -197,6 +215,16 @@ text = "SHOOT the [color=#ff0000]START[/color] button to make the [shake]DANGERO
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(109, 119)
 stream = ExtResource("12_664r7")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(121, 142)
+amount = 5
+lifetime = 4.0
+preprocess = 4.0
+texture = ExtResource("10_roogi")
+emission_shape = 3
+emission_rect_extents = Vector2(120, 1)
+gravity = Vector2(0, -25)
 
 [node name="ding" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_br64k")

@@ -3,7 +3,7 @@ var score = Singleton.score
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Highscorelabel.text = "Highscore: "+str(score)
+	$Highscorelabel.text = "Highscore: %07d" % (Singleton.score * 100)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

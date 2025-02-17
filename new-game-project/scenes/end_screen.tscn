@@ -21,12 +21,13 @@ theme_override_fonts/font = ExtResource("2_foj6s")
 text = "You lose!"
 
 [node name="Highscorelabel" type="Label" parent="."]
-offset_left = 74.0
+offset_left = -16.0
 offset_top = 42.0
-offset_right = 132.0
+offset_right = 239.0
 offset_bottom = 65.0
 theme_override_fonts/font = ExtResource("2_foj6s")
 text = "High Score:"
+horizontal_alignment = 1
 
 [node name="Label 2" type="Label" parent="."]
 offset_left = 22.0

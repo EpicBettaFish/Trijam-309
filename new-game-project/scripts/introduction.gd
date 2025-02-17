@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 			sprite2d2.position.x = mousepos.x
 			sprite2d2.position.y = mousepos.y
 			$AudioStreamPlayer2D.play()
-			await get_tree().create_timer(4).timeout
+			await get_tree().create_timer(1).timeout
 			get_tree().change_scene_to_file("res://scenes/main.tscn")
 			
 	
