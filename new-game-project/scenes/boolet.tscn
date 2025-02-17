@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://co0vqdrexhbxi"]
+
+[ext_resource type="Script" path="res://scripts/boolet.gd" id="1_wc63k"]
+[ext_resource type="Texture2D" uid="uid://c2uweyjjn16fs" path="res://assets/sprites/gun_buble.png" id="2_0hep1"]
+
+[node name="Boolet" type="Node2D"]
+script = ExtResource("1_wc63k")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+lifetime = 3.0
+explosiveness = 0.83
+texture = ExtResource("2_0hep1")
+gravity = Vector2(-3, 0)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
