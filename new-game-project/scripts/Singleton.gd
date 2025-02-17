@@ -1,6 +1,6 @@
 extends Node
 
-var money: int
+var money: int = 0
 
 var score = 0
 

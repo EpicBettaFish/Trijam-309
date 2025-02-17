@@ -31,13 +31,13 @@ var goon_cost = 20
 
 	
 func _process(delta: float) -> void:
-	fr_price.text = fire_rate_cost
-	su_price.text = spotter_cooldown_cost
-	sc_price.text = scan_cooldown_cost
+	fr_price.text = str(round(fire_rate_cost))
+	su_price.text = str(round(spotter_cooldown_cost))
+	sc_price.text = str(round(scan_cooldown_cost))
 	
-	sr_price.text = scan_radius_cost
-	gg_price.text = goon_cost
-	gs_price.text = goon_cost
+	sr_price.text = str(round(scan_radius_cost))
+	gg_price.text = str(round(goon_cost))
+	gs_price.text = str(round(goon_cost))
 	if Input.is_action_just_pressed("toggleShop"):
 		visible = !visible
 		
@@ -47,6 +47,7 @@ func _on_fire_rate_button_up() -> void:
 	if Singleton.money >= fire_rate_cost:
 		Singleton.fire_rate_upgrade += 1
 		emit_signal("updateValues")
+		print("firerate")
 		fire_rate_cost *= 1.15
 		
 func _on_spotter_cooldown_button_up() -> void:
