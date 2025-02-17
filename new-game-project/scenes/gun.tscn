@@ -118,7 +118,6 @@ z_index = 2
 script = ExtResource("1_10gnp")
 
 [node name="Player" type="Sprite2D" parent="."]
-z_index = 1
 position = Vector2(181, 70)
 texture = ExtResource("5_pustf")
 hframes = 2
