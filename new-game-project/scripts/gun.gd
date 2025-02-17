@@ -1,10 +1,12 @@
 extends Node2D
 
+var originalFirerate: float = 3.0
+
 #ADJUSTED IN SHOP
 var scanSize: float = 0.5
-var gunCooldown: float = 2.0
-var scanCooldown: float = 5.0
-var scanUptime: float = 2.0
+var gunCooldown: float = 3.0
+var scanCooldown: float = 7.5
+var scanUptime: float = 1.0
 #END
 
 var scopedIn: bool = false
@@ -35,6 +37,7 @@ var cooldownBarTween
 func _ready():
 	sightMask.visible = false
 	sightArea.disabled = true
+	gunCooldown = originalFirerate
 
 
 func _unhandled_input(event) -> void:
@@ -115,3 +118,7 @@ func _on_scan_cooldown_timeout():
 
 func _on_scan_active_timer_timeout():
 	scopeOut()
+
+
+func firerateUpgrade() -> void:
+	gunCooldown = originalFirerate / (1 + (0.15 * Singleton.firerateUpgrade))
