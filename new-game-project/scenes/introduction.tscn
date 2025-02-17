@@ -127,7 +127,7 @@ scale = Vector2(0.6, 0.6)
 mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("3_7g3l2")
 bbcode_enabled = true
-text = "[color=yellow]SHOOT[/color] the [color=red]red fish[/color] [color=yellow]DO NOT SHOOT[/color] the [color=green]green fish[/color]
+text = "[color=yellow]SHOOT[/color] the [color=red]terrorists[/color] [color=yellow]DO NOT SHOOT[/color] the [color=green]denizens[/color]
 "
 autowrap_mode = 2
 

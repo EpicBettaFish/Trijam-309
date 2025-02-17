@@ -37,3 +37,13 @@ offset_bottom = 111.0
 theme_override_fonts/font = ExtResource("2_foj6s")
 text = "Press right click to leave,  press left click to restart"
 autowrap_mode = 1
+
+[node name="Label 3" type="Label" parent="."]
+visible = false
+offset_left = 22.0
+offset_top = 76.0
+offset_right = 205.0
+offset_bottom = 111.0
+theme_override_fonts/font = ExtResource("2_foj6s")
+text = "press left click to restart"
+autowrap_mode = 1

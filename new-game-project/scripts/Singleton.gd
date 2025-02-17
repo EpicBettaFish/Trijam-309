@@ -8,6 +8,8 @@ var spotter_cooldown_upgrade: int
 var scan_cooldown_upgrade: int
 var scan_radius_upgrade: bool
 
+var seenPopup: bool = false
+
 func reset():
 	score = 0
 	money = 0

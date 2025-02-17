@@ -10,5 +10,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot"):
 		get_tree().change_scene_to_file("res://scenes/main.tscn")
+		Singleton.reset()
 	if Input.is_action_just_pressed("scopeIn"):
 		get_tree().quit()
