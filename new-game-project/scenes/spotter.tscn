@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://sify56clk40m"]
+[gd_scene load_steps=3 format=3 uid="uid://sify56clk40m"]
 
 [ext_resource type="Texture2D" uid="uid://hunhuekb5ly1" path="res://assets/sprites/spotter.png" id="1_7i3xq"]
+[ext_resource type="Script" path="res://scripts/spotter.gd" id="1_y86ji"]
 
 [node name="Spotter" type="Node2D"]
+script = ExtResource("1_y86ji")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_7i3xq")
+
+[node name="ScanTimer" type="Timer" parent="."]
+wait_time = 5.5
+
+[connection signal="timeout" from="ScanTimer" to="." method="_on_scan_timer_timeout"]
