@@ -98,3 +98,6 @@ texture_normal = ExtResource("8_bywal")
 [connection signal="button_up" from="Perma/FireRate" to="." method="_on_fire_rate_button_up"]
 [connection signal="button_up" from="Perma/SpotterCooldown" to="." method="_on_spotter_cooldown_button_up"]
 [connection signal="button_up" from="Perma/ScanCooldown" to="." method="_on_scan_cooldown_button_up"]
+[connection signal="button_up" from="One/ScanRadius" to="." method="_on_scan_radius_button_up"]
+[connection signal="button_up" from="One/GoonGunner" to="." method="_on_goon_press" binds= ["gunner"]]
+[connection signal="button_up" from="One/GoonSpotter" to="." method="_on_goon_press" binds= ["spotter"]]
