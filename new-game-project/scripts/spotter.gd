@@ -15,7 +15,3 @@ func _on_scan_timer_timeout():
 		var newScan = spotterScan.instantiate()
 		newScan.global_position = fish.global_position
 		get_parent().add_child(newScan)
-		
-		spawner.spawned_fish.erase(fish)
-		if fish.enemy:
-			spawner.evil_fish.append(fish)
