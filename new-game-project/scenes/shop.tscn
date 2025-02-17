@@ -25,6 +25,21 @@ grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("1_50gtv")
 
+[node name="TextureButton" type="TextureButton" parent="OneshotTexture"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureButton2" type="TextureButton" parent="OneshotTexture"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureButton" type="TextureButton" parent="OneshotTexture/TextureButton2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="PermaTexture" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 5
