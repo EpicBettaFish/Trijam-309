@@ -46,5 +46,8 @@ material = SubResource("CanvasItemMaterial_iheg5")
 texture = ExtResource("4_hdf83")
 
 [node name="ScreamAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_mvlnp")
+bus = &"FishSound"
+playback_type = 1
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

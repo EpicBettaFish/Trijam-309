@@ -30,6 +30,7 @@ text = "High Score:"
 horizontal_alignment = 1
 
 [node name="Label 2" type="Label" parent="."]
+visible = false
 offset_left = 22.0
 offset_top = 76.0
 offset_right = 205.0
@@ -39,7 +40,6 @@ text = "Press right click to leave,  press left click to restart"
 autowrap_mode = 1
 
 [node name="Label 3" type="Label" parent="."]
-visible = false
 offset_left = 22.0
 offset_top = 76.0
 offset_right = 205.0
